@@ -8,3 +8,31 @@ Alert alert = new Alert(AlertType.INFORMATION);
         alert.showAndWait();
         
 ------------------------------------------------------------------------------------
+
+@FXML
+    private Button BtnDashboard;
+
+    @FXML
+    private Button BtnTransactions;
+
+    @FXML
+    private AnchorPane DashboardPane;
+
+    @FXML
+    private Label LblDB1;
+
+    @FXML
+    private Label LblTrans1;
+
+    @FXML
+    private AnchorPane TransactionsPane;
+
+    @FXML
+    void OpenDashboard(ActionEvent event) {
+		 DashboardPane.toFront();
+    }
+
+    @FXML
+    void OpenTransactions(ActionEvent event) {
+		 TransactionsPane.toFront();
+    }
