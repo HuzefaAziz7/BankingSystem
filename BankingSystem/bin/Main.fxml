@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="582.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<StackPane prefHeight="582.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
       <AnchorPane blendMode="DARKEN" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="700.0">
          <children>
@@ -42,6 +42,10 @@
                   <Font size="14.0" />
                </font>
             </Label>
+            <Label fx:id="LblResult" alignment="CENTER" layoutX="163.0" layoutY="259.0" prefHeight="17.0" prefWidth="376.0">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </children>
