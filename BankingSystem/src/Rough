@@ -1,0 +1,10 @@
+Alert in JavaFX : 
+
+Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("This is a message box!");
+
+        alert.showAndWait();
+        
+------------------------------------------------------------------------------------

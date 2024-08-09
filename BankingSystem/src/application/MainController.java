@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -87,8 +89,8 @@ public class MainController {
     }   
     
     @FXML
-    void handleButtonAction(ActionEvent event) {
-
+    void handleButtonAction(ActionEvent event) { // On Main Page.
+    
     	String Username = new String (TxtFieldUsername.getText());
     	String Password = new String(PwdFieldPassword.getText());
     	ImpMethods.ExistingUserLogin(Username,Password);
@@ -97,9 +99,9 @@ public class MainController {
     	}    
     	else if (ImpMethods.VerificationResult.equals("Fail")){
     		LblResult.setText("Login Failed. Please Try Again");
-    	}
-    } 
-    
+    	} 
+
+    }    
     
 }
 

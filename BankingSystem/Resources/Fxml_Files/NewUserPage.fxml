@@ -27,8 +27,8 @@
       <Label fx:id="LblNULPEmail" alignment="CENTER_RIGHT" layoutX="193.0" layoutY="415.0" prefHeight="17.0" prefWidth="62.0" text="Email" />
       <PasswordField fx:id="PwdFieldNULPPassword" layoutX="270.0" layoutY="333.0" prefHeight="26.0" prefWidth="169.0" />
       <PasswordField fx:id="PwdFieldNULPConfirmPwd" layoutX="270.0" layoutY="372.0" prefHeight="26.0" prefWidth="169.0" />
-      <TextField layoutX="270.0" layoutY="297.0" prefHeight="26.0" prefWidth="169.0" />
-      <TextField layoutX="270.0" layoutY="410.0" prefHeight="26.0" prefWidth="169.0" />
-      <Button fx:id="BtnNULP" layoutX="308.0" layoutY="465.0" mnemonicParsing="false" text="Submit" />
+      <TextField fx:id="TxtFieldNULPUsername" layoutX="270.0" layoutY="297.0" prefHeight="26.0" prefWidth="169.0" />
+      <TextField fx:id="TxtFieldNULPEmail" layoutX="270.0" layoutY="410.0" prefHeight="26.0" prefWidth="169.0" />
+      <Button fx:id="BtnNULP" layoutX="308.0" layoutY="465.0" mnemonicParsing="false" onAction="#BtnNULPaction" text="Submit" />
    </children>
 </AnchorPane>
