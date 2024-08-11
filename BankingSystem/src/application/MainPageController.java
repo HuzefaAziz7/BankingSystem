@@ -12,6 +12,7 @@ public class MainPageController {
     private Button BtnDashboard;
     private AnchorPane DashboardPane;
     private Label LblDB1;
+    
     @FXML // Transaction Pane.
     private AnchorPane TransactionsPane;
     private Button BtnTransactions;
@@ -23,9 +24,7 @@ public class MainPageController {
 		 DashboardPane.setVisible(true);
 	     TransactionsPane.setVisible(false);
     }
-    
-    
-    
+
     @FXML
     void OpenTransactions(ActionEvent event) {
 		 TransactionsPane.toFront();
