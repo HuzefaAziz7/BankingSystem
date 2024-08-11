@@ -9,14 +9,19 @@ import javafx.scene.layout.AnchorPane;
 public class MainPageController {
 
     @FXML // Dashboard Pane.
-    private Button BtnDashboard;
     private AnchorPane DashboardPane;
+    private Button BtnDashboard;
     private Label LblDB1;
     
     @FXML // Transaction Pane.
     private AnchorPane TransactionsPane;
     private Button BtnTransactions;
     private Label LblTrans1; 
+    
+    @FXML
+    void initialize() {
+		
+    }
     
     @FXML
     void OpenDashboard(ActionEvent event) {

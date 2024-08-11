@@ -12,14 +12,14 @@ import javafx.scene.control.Label;
 
 public class BankingSystemMain extends Application {
 	public static Stage primaryStage;
-
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			BankingSystemMain.primaryStage = primaryStage;
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml_Files/MainPage.fxml"));
 			Parent root = loader.load(); 
-			Scene scene = new Scene(root,700,620);
+			Scene scene = new Scene(root,850, 630);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
@@ -37,3 +37,4 @@ public class BankingSystemMain extends Application {
 
 }
 
+// Scene Dimensions : 850, 630.
