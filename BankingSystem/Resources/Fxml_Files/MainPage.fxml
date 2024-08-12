@@ -4,6 +4,8 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
@@ -106,8 +108,8 @@
                <children>
                   <Pane layoutX="263.0" layoutY="14.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #8e9094;">
                      <children>
-                        <Label layoutX="14.0" layoutY="12.0" prefHeight="17.0" prefWidth="62.0" text="Deposit" />
-                        <Label layoutX="116.0" layoutY="12.0" prefHeight="17.0" prefWidth="77.0" text="Withdraw" />
+                        <Label alignment="CENTER" layoutX="-2.0" prefHeight="39.0" prefWidth="93.0" text="Deposit" />
+                        <Label alignment="CENTER" layoutX="94.0" layoutY="2.0" prefHeight="39.0" prefWidth="108.0" text="Withdraw" />
                      </children>
                   </Pane>
                   <AnchorPane fx:id="DepositPane" layoutX="31.0" layoutY="64.0" prefHeight="554.0" prefWidth="664.0" visible="false">
@@ -145,11 +147,45 @@
                         <TextField layoutX="258.0" layoutY="281.0" />
                         <TextField layoutX="257.0" layoutY="352.0" />
                         <Label layoutX="257.0" layoutY="327.0" text="Remarks" />
-                        <Button layoutX="265.0" layoutY="415.0" mnemonicParsing="false" text="Send" />
+                        <Button focusTraversable="false" layoutX="265.0" layoutY="415.0" mnemonicParsing="false" text="Send" />
                         <Button layoutX="338.0" layoutY="415.0" mnemonicParsing="false" text="Via Link" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="PINPane" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                  <StackPane fx:id="PINPane" layoutX="214.0" layoutY="189.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="294.0" prefWidth="298.0" visible="false">
+                     <children>
+                        <AnchorPane fx:id="EnterPINPane" prefHeight="295.0" prefWidth="298.0" style="-fx-background-color: #dedddc;" visible="false">
+                           <children>
+                              <Label alignment="CENTER" layoutX="35.0" layoutY="77.0" prefHeight="17.0" prefWidth="228.0" text="Please Enter your PIN ">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField alignment="CENTER" layoutX="67.0" layoutY="129.0" prefHeight="39.0" prefWidth="163.0" />
+                              <Button layoutX="120.0" layoutY="191.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="51.0" text="Enter" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="TransResultPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="298.0" style="-fx-background-color: #dedddc;" visible="false">
+                           <children>
+                              <ProgressIndicator fx:id="TransProgree" layoutX="111.0" layoutY="107.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" prefWidth="77.0" visible="false" />
+                              <Label fx:id="LblTransResult" alignment="CENTER" layoutX="4.0" layoutY="88.0" prefHeight="39.0" prefWidth="292.0" text="Transaction Successful">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="ImgSuccessful" fitHeight="100.0" fitWidth="123.0" layoutX="99.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../../../Downloads/Eo_circle_green_white_checkmark.svg.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="ImgFailed" fitHeight="100.0" fitWidth="146.0" layoutX="76.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Downloads/Cross-Emoji.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </StackPane>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="CardsPane" prefHeight="200.0" prefWidth="200.0" visible="false">
