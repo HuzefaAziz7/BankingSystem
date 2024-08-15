@@ -17,10 +17,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
-public class MainPageController implements Runnable {
+public class MainPageController {
 
 	@FXML
 	private Button BtnCards;
+	public ChoiceBox<String> CBAccountType;
 	@FXML
 	private Button BtnDashboard;
 	@FXML
@@ -83,8 +84,6 @@ public class MainPageController implements Runnable {
 	@FXML
 	private Label LblYourBalance1;
 	@FXML
-	private ListView<?> ListAccountType;
-	@FXML
 	private SplitPane Main;
 	@FXML
 	private StackPane MainDisplayPane;
@@ -108,12 +107,14 @@ public class MainPageController implements Runnable {
 	private AnchorPane UpperDashboardPane;
 	@FXML
 	private AnchorPane WithdrawPane;
+	
 
     
     @FXML
     void initialize() {
     	BasicPriorities();
-    	DateTime();
+    	CBAccountType.getItems().addAll("Current Account : •••• 7610", "Savings Account : •••• 8243");
+    	CBAccountType.setOnAction(this::SelectedAccount);
     }
     
     @FXML
@@ -132,11 +133,17 @@ public class MainPageController implements Runnable {
     
     void BasicPriorities() {
     	LblName.setText("Hello, " + Name);
+    	DateTime(); 	
     } // BasicPriorities(). For Things which must be done before anything.
    
     void DateTime() {
-    	LocalDate Date = LocalDate.now(); // Create a date object
+    	LocalDate Date = LocalDate.now(); 
     	LblDateTime.setText(Date.toString());      
-    }
+    } // DateTime().
     
+    void SelectedAccount(ActionEvent event) {
+    	String MyAccChoice = CBAccountType.getValue();
+    	LblAccountType.setText(MyAccChoice);
+//    	System.out.println(MyAccChoice);
+    } // SelectedAccount().
 }

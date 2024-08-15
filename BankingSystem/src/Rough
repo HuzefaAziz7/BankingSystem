@@ -9,30 +9,14 @@ Alert alert = new Alert(AlertType.INFORMATION);
         
 ------------------------------------------------------------------------------------
 
-@FXML
-    private Button BtnDashboard;
+myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
-    @FXML
-    private Button BtnTransactions;
-
-    @FXML
-    private AnchorPane DashboardPane;
-
-    @FXML
-    private Label LblDB1;
-
-    @FXML
-    private Label LblTrans1;
-
-    @FXML
-    private AnchorPane TransactionsPane;
-
-    @FXML
-    void OpenDashboard(ActionEvent event) {
-		 DashboardPane.toFront();
-    }
-
-    @FXML
-    void OpenTransactions(ActionEvent event) {
-		 TransactionsPane.toFront();
-    }
+			@Override
+			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+				
+				currentFood = myListView.getSelectionModel().getSelectedItem();
+				
+				myLabel.setText(currentFood);
+				
+			}	
+		});
