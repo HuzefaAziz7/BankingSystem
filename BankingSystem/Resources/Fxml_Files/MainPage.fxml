@@ -40,7 +40,7 @@
                <children>
                   <AnchorPane fx:id="UpperDashboardPane" cache="true" layoutX="6.0" layoutY="2.0" prefHeight="313.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF;">
                      <children>
-                        <ChoiceBox fx:id="CBAccountType" layoutX="229.0" layoutY="15.0" prefHeight="26.0" prefWidth="228.0" />
+                        <ChoiceBox fx:id="CBAccountType" layoutX="229.0" layoutY="15.0" prefHeight="26.0" prefWidth="228.0" value="Select Account" />
                         <Label fx:id="LblName" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="138.0" text="Hello, Huzefa Aziz">
                            <font>
                               <Font name="Kefa Regular" size="15.0" />
@@ -52,7 +52,7 @@
                            </font></Label>
                         <AnchorPane layoutX="35.0" layoutY="94.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="280.0" style="-fx-background-color: #e6e7e8;">
                            <children>
-                              <Label fx:id="LblBalanceAmount" alignment="CENTER" layoutX="47.0" layoutY="69.0" prefHeight="50.0" prefWidth="186.0" text="50,000">
+                              <Label fx:id="LblBalanceAmount" alignment="CENTER" layoutX="5.0" layoutY="69.0" prefHeight="50.0" prefWidth="273.0" text="53,120,749">
                                  <font>
                                     <Font name="Avenir Black Oblique" size="32.0" />
                                  </font>
@@ -62,11 +62,21 @@
                                     <Font name="Kefa Regular" size="20.0" />
                                  </font>
                               </Label>
+                              <Label fx:id="LblTotalCredit" layoutX="43.0" layoutY="138.0" prefHeight="20.0" prefWidth="81.0" text="📈 + 6,982">
+                                 <font>
+                                    <Font name="Avenir Black Oblique" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="LblTotalDebit" layoutX="168.0" layoutY="138.0" text="📉 - 2,943">
+                                 <font>
+                                    <Font name="Avenir Black Oblique" size="15.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
-                        <Separator layoutX="329.0" layoutY="75.0" orientation="VERTICAL" prefHeight="224.0" prefWidth="6.0" />
+                        <Separator layoutX="340.0" layoutY="76.0" orientation="VERTICAL" prefHeight="224.0" prefWidth="6.0" />
                         <Separator layoutX="161.0" layoutY="7.0" orientation="VERTICAL" prefHeight="39.0" prefWidth="6.0" />
-                        <Label fx:id="LblAccountType" layoutX="34.0" layoutY="58.0" prefHeight="19.0" prefWidth="228.0" text="Current Account : •••• 7610">
+                        <Label fx:id="LblAccountType" layoutX="34.0" layoutY="58.0" prefHeight="19.0" prefWidth="228.0" text="Account Type">
                            <font>
                               <Font name="Kefa Regular" size="16.0" />
                            </font></Label>
@@ -82,7 +92,7 @@
                         <Separator layoutX="543.0" layoutY="7.0" orientation="VERTICAL" prefHeight="39.0" prefWidth="6.0" />
                      </children>
                   </AnchorPane>
-                  <Pane fx:id="LatestTransPane" layoutX="39.0" layoutY="368.0" prefHeight="246.0" prefWidth="427.0" style="-fx-background-color: #FFFFFF;">
+                  <Pane fx:id="LatestTransPane" layoutX="29.0" layoutY="368.0" prefHeight="246.0" prefWidth="427.0" style="-fx-background-color: #FFFFFF;">
                      <children>
                         <Label alignment="CENTER" layoutX="95.0" layoutY="82.0" prefHeight="82.0" prefWidth="174.0" text="LATEST TRANSACTIONS" />
                      </children>

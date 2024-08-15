@@ -146,4 +146,28 @@ public class MainPageController {
     	LblAccountType.setText(MyAccChoice);
 //    	System.out.println(MyAccChoice);
     } // SelectedAccount().
+    
+    void BankBalance() {
+    	
+    } // BankBalance().
+    
+    void Cards() {
+    	
+    } // Cards().
+    
+    void LatestTransactions() {
+    	
+    } // LatestTransactions().
+    
+    void Offers() {
+    	
+    } // Offers().
+    
+    
+    
+    
+    
+    
+    
+    
 }
