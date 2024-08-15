@@ -31,45 +31,43 @@
                   <Image url="@../../../../Downloads/bank-icon-logo-design-vector.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="20.0" layoutY="288.0" mnemonicParsing="false" text="Notifications" />
-            <Button layoutX="34.0" layoutY="330.0" mnemonicParsing="false" text="Profile" />
+            <Button fx:id="BtnNotifications" layoutX="20.0" layoutY="288.0" mnemonicParsing="false" text="Notifications" />
+            <Button fx:id="BtnProfile" layoutX="34.0" layoutY="330.0" mnemonicParsing="false" text="Profile" />
          </children>
       </AnchorPane>
       <StackPane fx:id="MainDisplayPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="726.0">
          <children>
-            <AnchorPane fx:id="DashboardPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="630.0" prefWidth="734.0" style="-fx-background-color: #d7d8d9;" visible="false">
+            <AnchorPane fx:id="DashboardPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="630.0" prefWidth="734.0" style="-fx-background-color: #d7d8d9;">
                <children>
-                  <AnchorPane fx:id="UpperDashboardPane" cache="true" layoutX="6.0" layoutY="2.0" prefHeight="313.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF;" visible="false">
+                  <AnchorPane fx:id="UpperDashboardPane" cache="true" layoutX="6.0" layoutY="2.0" prefHeight="313.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF;">
                      <children>
-                        <Label fx:id="LblName" layoutX="56.0" layoutY="14.0" prefHeight="26.0" prefWidth="88.0" text="USERNAME">
+                        <Label fx:id="LblName" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="138.0" text="Hello, Huzefa Aziz">
                            <font>
                               <Font name="Arial" size="15.0" />
                            </font>
                         </Label>
-                        <Label fx:id="LblHello" layoutX="13.0" layoutY="17.0" prefHeight="19.0" prefWidth="43.0" text="Hello, ">
+                        <Label fx:id="LblDateTime" alignment="CENTER_RIGHT" layoutX="548.0" layoutY="18.0" prefHeight="18.0" prefWidth="146.0" text="2024-08-15 15:45:28">
                            <font>
                               <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="524.0" layoutY="16.0" prefHeight="17.0" prefWidth="108.0" text="DATE AND TIME " />
+                           </font></Label>
                         <AnchorPane layoutX="35.0" layoutY="94.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="280.0" style="-fx-background-color: #e6e7e8;">
                            <children>
-                              <Label alignment="CENTER" layoutX="47.0" layoutY="76.0" prefHeight="50.0" prefWidth="186.0" text="50,000">
+                              <Label fx:id="LblBalanceAmount" alignment="CENTER" layoutX="47.0" layoutY="76.0" prefHeight="50.0" prefWidth="186.0" text="50,000">
                                  <font>
                                     <Font name="Avenir Black Oblique" size="32.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="33.0" layoutY="16.0" prefHeight="17.0" prefWidth="123.0" text="Balance">
+                              <Label fx:id="LblBalanceText" layoutX="33.0" layoutY="16.0" prefHeight="17.0" prefWidth="123.0" text="Balance">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <ListView fx:id="ListAccount" layoutX="235.0" layoutY="15.0" prefHeight="24.0" prefWidth="200.0" />
+                        <ListView fx:id="ListAccountType" layoutX="254.0" layoutY="15.0" prefHeight="24.0" prefWidth="200.0" />
                         <Separator layoutX="329.0" layoutY="75.0" orientation="VERTICAL" prefHeight="224.0" prefWidth="6.0" />
-                        <Separator layoutX="145.0" layoutY="5.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="0.0" />
-                        <Label layoutX="100.0" layoutY="58.0" prefHeight="17.0" prefWidth="108.0" text="ACCOUNT TYPE " />
+                        <Separator layoutX="161.0" layoutY="7.0" orientation="VERTICAL" prefHeight="39.0" prefWidth="6.0" />
+                        <Label fx:id="LblAccountType" layoutX="100.0" layoutY="58.0" prefHeight="17.0" prefWidth="108.0" text="Acc Type" />
                         <StackPane layoutX="375.0" layoutY="94.0" prefHeight="188.0" prefWidth="298.0" style="-fx-background-color: #e6e7e8;">
                            <children>
                               <Label prefHeight="17.0" prefWidth="130.0" text="CARDS HERE">
@@ -79,14 +77,15 @@
                               </Label>
                            </children>
                         </StackPane>
+                        <Separator layoutX="543.0" layoutY="7.0" orientation="VERTICAL" prefHeight="39.0" prefWidth="6.0" />
                      </children>
                   </AnchorPane>
-                  <Pane layoutX="39.0" layoutY="368.0" prefHeight="246.0" prefWidth="427.0" style="-fx-background-color: #FFFFFF;">
+                  <Pane fx:id="LatestTransPane" layoutX="39.0" layoutY="368.0" prefHeight="246.0" prefWidth="427.0" style="-fx-background-color: #FFFFFF;">
                      <children>
                         <Label alignment="CENTER" layoutX="95.0" layoutY="82.0" prefHeight="82.0" prefWidth="174.0" text="LATEST TRANSACTIONS" />
                      </children>
                   </Pane>
-                  <AnchorPane layoutX="476.0" layoutY="368.0" prefHeight="246.0" prefWidth="242.0" style="-fx-background-color: #FFFFFF;">
+                  <AnchorPane fx:id="OffersPane" layoutX="476.0" layoutY="368.0" prefHeight="246.0" prefWidth="242.0" style="-fx-background-color: #FFFFFF;">
                      <children>
                         <Label layoutX="47.0" layoutY="110.0" prefHeight="17.0" prefWidth="174.0" text="OFFERS HERE">
                            <font>
@@ -97,14 +96,14 @@
                   </AnchorPane>
                   <Pane fx:id="PayReqPane" layoutX="514.0" layoutY="318.0" prefHeight="46.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
                      <children>
-                        <Label layoutX="36.0" layoutY="15.0" text="PAY" />
-                        <Label layoutX="116.0" layoutY="15.0" text="REQUEST" />
+                        <Label fx:id="LblPay" layoutX="36.0" layoutY="15.0" text="PAY" />
+                        <Label fx:id="LblRequest" layoutX="116.0" layoutY="15.0" text="REQUEST" />
                         <Separator layoutX="97.0" layoutY="4.0" orientation="VERTICAL" prefHeight="39.0" prefWidth="6.0" />
                      </children>
                   </Pane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="TransactionsPane" prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane fx:id="TransactionsPane" prefHeight="200.0" prefWidth="200.0" visible="false">
                <children>
                   <Pane layoutX="263.0" layoutY="14.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #8e9094;">
                      <children>
@@ -149,6 +148,11 @@
                         <Label layoutX="257.0" layoutY="327.0" text="Remarks" />
                         <Button focusTraversable="false" layoutX="265.0" layoutY="415.0" mnemonicParsing="false" text="Send" />
                         <Button layoutX="338.0" layoutY="415.0" mnemonicParsing="false" text="Via Link" />
+                        <Label alignment="CENTER_RIGHT" layoutX="224.0" layoutY="281.0" prefHeight="24.0" prefWidth="30.0" text="₹">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                   <StackPane fx:id="PINPane" layoutX="214.0" layoutY="189.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="294.0" prefWidth="298.0" visible="false">

@@ -46,6 +46,7 @@ public class MainController {
     public TextField TxtFieldUsername;
     private TextField TxtFieldNULPEmail;
     private TextField TxtFieldNULPUsername;
+    public static String DashboardUsername ;
 
     
 //  FXML Methods begin from here.
@@ -92,6 +93,7 @@ public class MainController {
     void handleButtonAction(ActionEvent event) { // On Main Page.
     
     	String Username = new String (TxtFieldUsername.getText());
+    	DashboardUsername = Username;
     	String Password = new String(PwdFieldPassword.getText());
     	ImpMethods.ExistingUserLogin(Username,Password);
     	if (ImpMethods.VerificationResult.equals("Pass")) {
