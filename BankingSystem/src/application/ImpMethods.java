@@ -27,9 +27,9 @@ public class ImpMethods {
 
 	  	{ try {
 			
-	  		String dbUrl = "jdbc:mysql://localhost:3306/AccManager" ;
-	  		String usernamedb = "root" ;
-	  		String passworddb = "root1203503" ;
+	  		String dbUrl = "jdbc:mysql://localhost:3306/BankingSystem" ;
+	  		String usernamedb = "BankingSystem" ;
+	  		String passworddb = "bank" ;
 			
 //	  		Get Connection to Database 
 	  		MyCon = DriverManager.getConnection(dbUrl, usernamedb , passworddb); 

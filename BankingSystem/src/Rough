@@ -9,14 +9,28 @@ Alert alert = new Alert(AlertType.INFORMATION);
         
 ------------------------------------------------------------------------------------
 
-myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+public static void DBConnection() {
 
-			@Override
-			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-				
-				currentFood = myListView.getSelectionModel().getSelectedItem();
-				
-				myLabel.setText(currentFood);
-				
-			}	
-		});
+	  	{ try {
+	  		
+	  		String dbUrl = "jdbc:mysql://localhost:3306/Admin" ;
+	  		String usernamedb = "BankingSystem" ;
+	  		String passworddb = "bank" ;
+			
+//	  		Get Connection to Database 
+	  		Connection MyCon = DriverManager.getConnection(dbUrl, usernamedb , passworddb); 
+			
+//	  		Create A Statement 
+	  		Statement MyStmt = MyCon.createStatement();
+	  		
+	  		System.out.println("Connection Established");
+	  	} // Try.
+		
+	  	catch (Exception exc) {
+	  		exc.printStackTrace(); 
+	  	}  } // Catch, JDBC Connection.
+
+	  } // DBConnection()
+	  
+	  
+	   INSERT INTO Huzefa(Payee, Amount, Payer, TransStatus,TransType) VALUES ("Hatim",500,"Huzefa 7245", "Completed", "Debit");
