@@ -2,7 +2,8 @@
 package application;
 
 
-import java.awt.TextArea;
+import javafx.scene.control.TextArea;
+
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,57 +29,58 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class LoginPageController {
+	
+	public TextField TxtFieldNULPUsername;
+	public  TextField TxtFMobileNum;
+	public  TextField TxtFieldNULPEmail;
+	public  TextField TxtFieldUsername;
+	
+	public  PasswordField PwdFieldNULPConfirmPwd;
+	public  PasswordField PwdFieldNULPPassword;
+	public  PasswordField PwdFieldPassword;
+
+	public  TextArea TxtAreaAdress;
 
 	public static Stage NewUserStage;
 	
-	private ImageView BankImage;
-
-	private Button BtnNULP;
-
+	public  ImageView BankImage;
+	
 	public ChoiceBox<String> CBAccountType;
-	ArrayList<String> AccountTypes = new ArrayList<>(Arrays.asList("Current Account", "Savings Account", "Youth Account"));
+	public ArrayList<String> AccountTypes = new ArrayList<>(Arrays.asList("Current Account", "Savings Account", "Youth Account"));
 	
 	public ChoiceBox<String> CBBranchType;
+	public ArrayList<String> BranchTypes = new ArrayList<>(Arrays.asList("Pune", "Mumbai", "Jaipur","Partapur"));
 
-	private Label LblAddress;
-	private Label LblBranch;
-	private Label LblChooseAccount;
-	private Label LblMobileNum;
-	private Label LblNULP1;
-	private Label LblNULPConfirmPwd;
-	private Label LblNULPEmail;
-	private Label LblNULPPassword;
-	private Label LblNULPUsername;
-	private Label LblForgotPwd;
-	private Label LblPassword;
-	private Label LblSignIn;
-	private Label LblUsername;
-	private Label LblResult;
-
-	private PasswordField PwdFieldNULPConfirmPwd;
-	private PasswordField PwdFieldNULPPassword;
-	private PasswordField PwdFieldPassword;
-
-	private TextArea TxtAreaAdress;
-
-	private TextField TxtFMobileNum;
-	private TextField TxtFieldNULPEmail;
-	private TextField TxtFieldNULPUsername;
-	private TextField TxtFieldUsername;
-
+	public  Label LblAddress;
+	public  Label LblBranch;
+	public  Label LblChooseAccount;
+	public  Label LblMobileNum;
+	public  Label LblNULP1;
+	public  Label LblNULPConfirmPwd;
+	public  Label LblNULPEmail;
+	public  Label LblNULPPassword;
+	public  Label LblNULPUsername;
+	public  Label LblForgotPwd;
+	public  Label LblPassword;
+	public  Label LblSignIn;
+	public  Label LblUsername;
+	public  Label LblResult;
+	
 	public static String DashboardUsername;
 
 	public Button MyButton;
+	public  Button BtnNULP;
 
 //  FXML Methods begin from here.
     
 	@FXML 
 	void initialize() {
-		
+		BasicPriorities();
 	}
 	
 	void BasicPriorities() {
 		AccountTypes();
+		BankBranch();
 	}
     @FXML
     void ForgotPwd(MouseEvent event) {
@@ -110,14 +112,17 @@ public class LoginPageController {
 		String NewPassword = new String(PwdFieldNULPPassword.getText()) ;
 		String ConfirmPassword = new String(PwdFieldNULPConfirmPwd.getText()) ;
 		String Email = new String(TxtFieldNULPEmail.getText());
-		int MobileNum = Integer.parseInt(TxtFieldNULPEmail.getText());
-		String Address = new String(TxtAreaAdress.getText());
 		String SelectedAcc = CBAccountType.getValue();
+		int MobileNum = Integer.parseInt(TxtFMobileNum.getText());
+		String Address = new String(TxtAreaAdress.getText());
+		String SelectedBranch = CBBranchType.getValue();
 		
+		
+		/*
 		if (NewPassword.equals(ConfirmPassword)) { 
 			ImpMethods.NewUserLogin(Fullname, NewPassword, Email);
 			LblNULP1.setText("New Login Successful.. Please Wait");
-		}
+		} */
 		
     }   
     
@@ -138,6 +143,10 @@ public class LoginPageController {
     
 	void AccountTypes() {		
 		CBAccountType.getItems().addAll(AccountTypes);
+	}
+	
+	void BankBranch() {
+		CBBranchType.getItems().addAll(BranchTypes);
 	}
     
 }
