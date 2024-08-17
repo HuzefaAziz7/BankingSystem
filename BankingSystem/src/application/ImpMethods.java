@@ -23,11 +23,11 @@ public class ImpMethods {
 		System.out.println("Connection Successful");
 	}
 	
-	public static void DBConnection() {
+	public static void AdminDBConnection() {
 
 	  	{ try {
 			
-	  		String dbUrl = "jdbc:mysql://localhost:3306/BankingSystem" ;
+	  		String dbUrl = "jdbc:mysql://localhost:3306/Admin" ;
 	  		String usernamedb = "BankingSystem" ;
 	  		String passworddb = "bank" ;
 			
@@ -37,7 +37,7 @@ public class ImpMethods {
 //	  		Create A Statement 
 	  		MyStmt = MyCon.createStatement();
 	  		
-	  		System.out.println("Connection Established");
+	  		System.out.println("Connection to Admin Established");
 	  	} // Try.
 		
 	  	catch (Exception exc) {

@@ -34,3 +34,5 @@ public static void DBConnection() {
 	  
 	  
 	   INSERT INTO Huzefa(Payee, Amount, Payer, TransStatus,TransType) VALUES ("Hatim",500,"Huzefa 7245", "Completed", "Debit");
+	   
+	   jTextArea.setLineWrap(true);
