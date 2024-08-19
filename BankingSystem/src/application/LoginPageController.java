@@ -67,6 +67,9 @@ public class LoginPageController {
 	public  Label LblResult;
 	
 	public static String DashboardUsername;
+	public static String CustomerID;
+	public static String AccountNumber; 
+	public static String DebitCardNum;
 
 	public Button MyButton;
 	public  Button BtnNULP;
@@ -107,22 +110,26 @@ public class LoginPageController {
     
     @FXML
     void BtnNULPaction(ActionEvent event) {
-    	
-    	String Fullname = new String(TxtFieldNULPUsername.getText()) ;
-		String NewPassword = new String(PwdFieldNULPPassword.getText()) ;
+    	 
+    	String CustomerName = new String(TxtFieldNULPUsername.getText()) ;
+		String Password = new String(PwdFieldNULPPassword.getText()) ;
 		String ConfirmPassword = new String(PwdFieldNULPConfirmPwd.getText()) ;
+		String AccountType = CBAccountType.getValue() ; 
+		String PIN = null ;
 		String Email = new String(TxtFieldNULPEmail.getText());
-		String SelectedAcc = CBAccountType.getValue();
-		int MobileNum = Integer.parseInt(TxtFMobileNum.getText());
+		String MobileNum = new String(TxtFMobileNum.getText());
 		String Address = new String(TxtAreaAdress.getText());
-		String SelectedBranch = CBBranchType.getValue();
+		String Branch = CBBranchType.getValue();
+		ImpMethods.generateCustomerID(Branch);
+		ImpMethods.generateAccountNumber(AccountType);
+		ImpMethods.generateCardNum(AccountType);
 		
-		
-		/*
-		if (NewPassword.equals(ConfirmPassword)) { 
-			ImpMethods.NewUserLogin(Fullname, NewPassword, Email);
+//		(String ClientID, String ClientName, String Password, String AccountType, String AccountNumber, String DebitCardNum, 
+//		String PIN, String Email, String MobileNum, String Address, String Branch)
+		if (Password.equals(ConfirmPassword)) { 
+			ImpMethods.NewUserLogin(CustomerID, CustomerName, Password, AccountType, AccountNumber, DebitCardNum, PIN, Email, MobileNum, Address, Branch);
 			LblNULP1.setText("New Login Successful.. Please Wait");
-		} */
+		} 
 		
     }   
     

@@ -1,3 +1,4 @@
+------------------------------------------------------------------------------------
 Alert in JavaFX : 
 
 Alert alert = new Alert(AlertType.INFORMATION);
@@ -9,30 +10,51 @@ Alert alert = new Alert(AlertType.INFORMATION);
         
 ------------------------------------------------------------------------------------
 
-public static void DBConnection() {
 
-	  	{ try {
-	  		
-	  		String dbUrl = "jdbc:mysql://localhost:3306/Admin" ;
-	  		String usernamedb = "BankingSystem" ;
-	  		String passworddb = "bank" ;
-			
-//	  		Get Connection to Database 
-	  		Connection MyCon = DriverManager.getConnection(dbUrl, usernamedb , passworddb); 
-			
-//	  		Create A Statement 
-	  		Statement MyStmt = MyCon.createStatement();
-	  		
-	  		System.out.println("Connection Established");
-	  	} // Try.
-		
-	  	catch (Exception exc) {
-	  		exc.printStackTrace(); 
-	  	}  } // Catch, JDBC Connection.
-
-	  } // DBConnection()
-	  
-	  
 	   INSERT INTO Huzefa(Payee, Amount, Payer, TransStatus,TransType) VALUES ("Hatim",500,"Huzefa 7245", "Completed", "Debit");
 	   
-	   jTextArea.setLineWrap(true);
+------------------------------------------------------------------------------------ 
+	   
+	   CustomerID ; 
+	   		Pune = 11, Mumbai = 22, Jaipur = 33, Partapur = 44.
+		
+------------------------------------------------------------------------------------
+	  
+	  static public void InsertTransactions(String Payee, int Amount, String Payer, String TransStatus, String TransType) { 
+        try {
+            // Create Prepared Statement for Credit :
+            PSUpdate = MyCon.prepareStatement("INSERT INTO Huzefa(Payee, Amount, Payer, TransStatus,TransType) VALUES (?,?,?,?,?);");        
+            PSUpdate.setString(1, Payee);
+            PSUpdate.setDouble(2, Amount);
+            PSUpdate.setString(3, Payer);
+            PSUpdate.setString(4, TransStatus);
+            PSUpdate.setString(5, TransType);
+            int rowsAffected = PSUpdate.executeUpdate();
+        } // Try.        
+        
+        catch (Exception exc) {
+            exc.printStackTrace();
+        } // Catch. 
+    } // InsertCredit Method.
+    
+------------------------------------------------------------------------------------
+
+for (int i=0;i<20;i++) {
+//			
+//			if (AccType == "Current") {
+//				FPart = 5110 ;
+//			}
+//			else if (AccType == "Savings") {
+//				FPart = 5220 ;
+//			}
+//			else if (AccType == "Youth") {
+//				FPart = 5330 ;
+//			}
+//			else {
+//				FPart = rand.nextInt(1000,9999);
+//			}
+			
+		}
+		
+------------------------------------------------------------------------------------
+		
