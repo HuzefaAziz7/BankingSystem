@@ -23,22 +23,22 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="LblNULPUsername" alignment="CENTER_RIGHT" layoutX="287.0" layoutY="204.0" prefHeight="17.0" prefWidth="61.0" text="Full Name" />
-      <Label fx:id="LblNULPPassword" alignment="CENTER_RIGHT" layoutX="285.0" layoutY="241.0" prefHeight="17.0" prefWidth="62.0" text="Password" />
-      <Label fx:id="LblNULPConfirmPwd" alignment="CENTER_RIGHT" layoutX="186.0" layoutY="281.0" prefHeight="17.0" prefWidth="160.0" text="Confirm Password" />
-      <Label fx:id="LblNULPEmail" alignment="CENTER_RIGHT" layoutX="283.0" layoutY="319.0" prefHeight="17.0" prefWidth="62.0" text="Email" />
-      <PasswordField fx:id="PwdFieldNULPPassword" layoutX="359.0" layoutY="237.0" prefHeight="26.0" prefWidth="169.0" />
-      <PasswordField fx:id="PwdFieldNULPConfirmPwd" layoutX="360.0" layoutY="276.0" prefHeight="26.0" prefWidth="169.0" />
-      <TextField fx:id="TxtFieldNULPUsername" layoutX="360.0" layoutY="199.0" prefHeight="26.0" prefWidth="169.0" />
-      <TextField fx:id="TxtFieldNULPEmail" layoutX="360.0" layoutY="315.0" prefHeight="26.0" prefWidth="169.0" />
-      <Label fx:id="LblChooseAccount" alignment="CENTER_RIGHT" layoutX="251.0" layoutY="356.0" prefHeight="17.0" prefWidth="98.0" text="Choose Account " />
-      <ChoiceBox fx:id="CBAccountType" layoutX="360.0" layoutY="352.0" prefHeight="26.0" prefWidth="168.0" />
-      <Label fx:id="LblMobileNum" alignment="CENTER_RIGHT" layoutX="253.0" layoutY="395.0" prefHeight="17.0" prefWidth="91.0" text="Mobile Number" />
-      <TextField fx:id="TxtFMobileNum" layoutX="358.0" layoutY="392.0" prefHeight="26.0" prefWidth="170.0" />
-      <Label fx:id="LblAddress" layoutX="299.0" layoutY="430.0" text="Address" />
-      <TextArea fx:id="TxtAreaAdress" layoutX="359.0" layoutY="428.0" prefHeight="64.0" prefWidth="169.0" wrapText="true" />
-      <Label fx:id="LblBranch" layoutX="301.0" layoutY="507.0" text="Branch " />
-      <ChoiceBox fx:id="CBBranchType" layoutX="359.0" layoutY="503.0" prefHeight="26.0" prefWidth="168.0" />
-      <Button fx:id="BtnNULP" layoutX="405.0" layoutY="558.0" mnemonicParsing="false" onAction="#BtnNULPaction" text="Submit" />
+      <Label fx:id="LblNULPUsername" alignment="CENTER_RIGHT" layoutX="291.0" layoutY="204.0" prefHeight="17.0" prefWidth="61.0" text="Full Name" />
+      <Label fx:id="LblNULPPassword" alignment="CENTER_RIGHT" layoutX="289.0" layoutY="241.0" prefHeight="17.0" prefWidth="62.0" text="Password" />
+      <Label fx:id="LblNULPConfirmPwd" alignment="CENTER_RIGHT" layoutX="190.0" layoutY="281.0" prefHeight="17.0" prefWidth="160.0" text="Confirm Password" />
+      <Label fx:id="LblNULPEmail" alignment="CENTER_RIGHT" layoutX="287.0" layoutY="319.0" prefHeight="17.0" prefWidth="62.0" text="Email" />
+      <PasswordField fx:id="PwdFieldNULPPassword" layoutX="363.0" layoutY="237.0" prefHeight="26.0" prefWidth="169.0" />
+      <PasswordField fx:id="PwdFieldNULPConfirmPwd" layoutX="364.0" layoutY="276.0" prefHeight="26.0" prefWidth="169.0" />
+      <TextField fx:id="TxtFieldNULPUsername" layoutX="364.0" layoutY="199.0" prefHeight="26.0" prefWidth="169.0" />
+      <TextField fx:id="TxtFieldNULPEmail" layoutX="364.0" layoutY="315.0" prefHeight="26.0" prefWidth="169.0" />
+      <Label fx:id="LblChooseAccount" alignment="CENTER_RIGHT" layoutX="255.0" layoutY="356.0" prefHeight="17.0" prefWidth="98.0" text="Choose Account " />
+      <ChoiceBox fx:id="CBAccountType" layoutX="364.0" layoutY="352.0" prefHeight="26.0" prefWidth="168.0" value="Select Account" />
+      <Label fx:id="LblMobileNum" alignment="CENTER_RIGHT" layoutX="257.0" layoutY="395.0" prefHeight="17.0" prefWidth="91.0" text="Mobile Number" />
+      <TextField fx:id="TxtFMobileNum" layoutX="362.0" layoutY="392.0" prefHeight="26.0" prefWidth="170.0" />
+      <Label fx:id="LblAddress" layoutX="303.0" layoutY="430.0" text="Address" />
+      <TextArea fx:id="TxtAreaAdress" layoutX="363.0" layoutY="428.0" prefHeight="64.0" prefWidth="169.0" wrapText="true" />
+      <Label fx:id="LblBranch" layoutX="305.0" layoutY="507.0" text="Branch " />
+      <ChoiceBox fx:id="CBBranchType" layoutX="363.0" layoutY="503.0" prefHeight="26.0" prefWidth="168.0" value="Select Branch" />
+      <Button fx:id="BtnNULP" layoutX="409.0" layoutY="558.0" mnemonicParsing="false" onAction="#BtnNULPaction" text="Submit" />
    </children>
 </AnchorPane>

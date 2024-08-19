@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane fx:id="ForgotPwdPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MinorPageController">
+   <children>
+      <ImageView fx:id="BankImage" blendMode="DARKEN" fitHeight="159.0" fitWidth="165.0" layoutX="281.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/bank-icon-logo-design-vector.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="LblMainFP" alignment="CENTER" layoutX="-4.0" layoutY="187.0" prefHeight="19.0" prefWidth="730.0" text="Forgot Password? Don't worry, we'll send you an email to reset the password.">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="LblFPCustomerID" alignment="CENTER_RIGHT" layoutX="217.0" layoutY="262.0" prefHeight="17.0" prefWidth="72.0" text="Customer ID" />
+      <TextField fx:id="TxtFieldFPCustomerID" layoutX="306.0" layoutY="257.0" />
+      <AnchorPane fx:id="FPOptionPane" layoutX="261.0" layoutY="315.0" prefHeight="261.0" prefWidth="200.0">
+         <children>
+            <Pane fx:id="FPOPEmailPane" onMouseClicked="#ReqEmail" prefHeight="131.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="LblReqEmail" alignment="CENTER" layoutX="5.0" layoutY="23.0" prefHeight="17.0" prefWidth="193.0" text="via Email">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LblEmailAddressFP" alignment="CENTER" layoutX="10.0" layoutY="66.0" prefHeight="17.0" prefWidth="183.0" text="-EMAIL ADDRESS-" />
+               </children>
+            </Pane>
+            <Separator layoutY="130.0" prefWidth="200.0" />
+            <Pane fx:id="FPOPMobileNumPane" layoutY="131.0" onMouseClicked="#ReqMobileNumber" prefHeight="131.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="LblReqNumber" alignment="CENTER" layoutX="5.0" layoutY="27.0" prefHeight="17.0" prefWidth="193.0" text="via Mobile Number">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LblMobileNumberFP" alignment="CENTER" layoutX="5.0" layoutY="66.0" prefHeight="17.0" prefWidth="193.0" text="-NUMBER-" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
