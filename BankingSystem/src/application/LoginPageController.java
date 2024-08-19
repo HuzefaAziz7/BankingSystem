@@ -1,7 +1,6 @@
 // FXML Files connected to this controller : FrontLoginPage, NewUserPage, ForgotPwdPage.
 package application;
 
-
 import javafx.scene.control.TextArea;
 
 import java.awt.event.ActionListener;
@@ -27,6 +26,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+
+import org.mindrot.jbcrypt.BCrypt;
 
 public class LoginPageController {
 	
@@ -70,6 +71,8 @@ public class LoginPageController {
 	public static String CustomerID;
 	public static String AccountNumber; 
 	public static String DebitCardNum;
+	public static String CVV; 
+	public static String ExpiryDate ;
 
 	public Button MyButton;
 	public  Button BtnNULP;
@@ -112,8 +115,9 @@ public class LoginPageController {
     void BtnNULPaction(ActionEvent event) {
     	 
     	String CustomerName = new String(TxtFieldNULPUsername.getText()) ;
-		String Password = new String(PwdFieldNULPPassword.getText()) ;
+		String NewPassword = new String(PwdFieldNULPPassword.getText()) ;
 		String ConfirmPassword = new String(PwdFieldNULPConfirmPwd.getText()) ;
+		String HashedPassword = BCrypt.hashpw(NewPassword, BCrypt.gensalt());
 		String AccountType = CBAccountType.getValue() ; 
 		String PIN = null ;
 		String Email = new String(TxtFieldNULPEmail.getText());
@@ -126,8 +130,8 @@ public class LoginPageController {
 		
 //		(String ClientID, String ClientName, String Password, String AccountType, String AccountNumber, String DebitCardNum, 
 //		String PIN, String Email, String MobileNum, String Address, String Branch)
-		if (Password.equals(ConfirmPassword)) { 
-			ImpMethods.NewUserLogin(CustomerID, CustomerName, Password, AccountType, AccountNumber, DebitCardNum, PIN, Email, MobileNum, Address, Branch);
+		if (NewPassword.equals(ConfirmPassword)) { 
+			ImpMethods.NewUserLogin(CustomerID, CustomerName, HashedPassword, AccountType, AccountNumber, DebitCardNum, CVV, ExpiryDate, PIN, Email, MobileNum, Address, Branch);
 			LblNULP1.setText("New Login Successful.. Please Wait");
 		} 
 		

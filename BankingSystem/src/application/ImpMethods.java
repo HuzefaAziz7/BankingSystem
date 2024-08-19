@@ -3,7 +3,6 @@ package application;
 
 import java.util.Random;
 import java.util.Scanner ;
-import org.mindrot.jbcrypt.BCrypt;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.Year;
+
+import org.mindrot.jbcrypt.BCrypt;
 
 public class ImpMethods {
 	 
@@ -71,23 +72,22 @@ public class ImpMethods {
 
 	  } // DBConnection()
 	
-	static public void NewUserLogin(String CustomerID, String CustomerName, String Password, String AccountType, String AccountNumber, String DebitCardNum, String PIN, String Email, String MobileNum, String Address, String Branch) {
+	static public void NewUserLogin(String CustomerID, String CustomerName, String Password, String AccountType, String AccountNumber, String DebitCardNum, String CVV, String ExpiryDate, String PIN, String Email, String MobileNum, String Address, String Branch) {
     	AdminDBConnection();
         try {
             // Prepared Statement for Inserting the Username and HashedPassword into DB.
-        	String[] Info = { CustomerID,  CustomerName,  Password,  AccountType,  AccountNumber,  DebitCardNum,  PIN = null,  Email,  MobileNum,  Address,  Branch};
+        	String[] Info = { CustomerID,  CustomerName,  Password,  AccountType,  AccountNumber,  DebitCardNum, CVV, ExpiryDate,  PIN = null,  Email,  MobileNum,  Address,  Branch};
         	
-        	PSUpdate = MyCon.prepareStatement("INSERT INTO ClientInfo(CustomerID,CustomerName,Password,AccountType,AccountNumber,DebitCardNum,PIN,Email,MobileNumber,Address,Branch) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+        	PSUpdate = MyCon.prepareStatement("INSERT INTO ClientInfo(CustomerID,CustomerName,Password,AccountType,AccountNumber,DebitCardNum,CVV,ExpiryDate,PIN,Email,MobileNumber,Address,Branch) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
             
-            for (int i = 0; i < Info.length; i++) {
-//                System.out.println((i + 1) + ", " + Info[i]);
-            	if (i == 0 || i == 8) {
-            	    PSUpdate.setInt((i + 1), Integer.parseInt(Info[i]));
-            	}
-            	else {
-            		PSUpdate.setString((i + 1) , Info[i]);
-            	} 	
-            }
+        	for (int i = 0; i < Info.length; i++) {
+        	    if (i == 0 || i == 6 || i == 10) {
+        	        // Use Long.parseLong to avoid NumberFormatException for large numbers
+        	        PSUpdate.setLong((i + 1), Long.parseLong(Info[i]));
+        	    } else {
+        	        PSUpdate.setString((i + 1), Info[i]);
+        	    }
+        	}
             int rowsAffected = PSUpdate.executeUpdate();
             PSUpdate.close();
             System.out.print("Done");
@@ -162,17 +162,17 @@ public class ImpMethods {
 		// Card Number.
 		int FPart;
 
-		if (AccType == "Current") {
+		if (AccType == "Current Account") {
 			FPart = 5110 ;
 		}
-		else if (AccType == "Savings") {
+		else if (AccType == "Savings Account") {
 			FPart = 5220 ;
 		}
-		else if (AccType == "Youth") {
+		else if (AccType == "Youth Account") {
 			FPart = 5330 ;
 		}
 		else {
-			FPart = rand.nextInt(1000,9999);
+			FPart = 5440;
 		}
 		
 		int SPart = rand.nextInt(1000,9999);
@@ -197,7 +197,9 @@ public class ImpMethods {
         String ExpiryDate = formattedMonth + "/" + formattedYear;
         
         LoginPageController.DebitCardNum = ConCardNumber ;
-
+        LoginPageController.CVV = CVVNumber ;
+        LoginPageController.ExpiryDate = ExpiryDate ;
+        
 	} // generateCardNum(). For Debit and Credit.
 	
 	
