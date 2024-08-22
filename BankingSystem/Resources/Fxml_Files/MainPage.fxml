@@ -15,32 +15,59 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="Main" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainPageController">
+<SplitPane fx:id="MainPane" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainPageController">
    <items>
       <AnchorPane fx:id="SideBarPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="118.0">
          <children>
-            <Button fx:id="BtnDashboard" layoutX="24.0" layoutY="107.0" mnemonicParsing="false" onAction="#OpenDashboard" text="Dashboard" />
-            <Button fx:id="BtnTransactions" layoutX="19.0" layoutY="153.0" mnemonicParsing="false" onAction="#OpenTransactions" text="Transactions" />
-            <Button fx:id="BtnCards" layoutX="36.0" layoutY="199.0" mnemonicParsing="false" text="Cards" />
-            <Button fx:id="BtnHistory" layoutX="36.0" layoutY="241.0" mnemonicParsing="false" text="History" />
-            <Button fx:id="BtnSettings" layoutX="14.0" layoutY="558.0" mnemonicParsing="false" text="Settings" />
-            <Button fx:id="BtnHelp" layoutX="43.0" layoutY="517.0" mnemonicParsing="false" text="Help" />
-            <ImageView fx:id="ImgBank" blendMode="DARKEN" fitHeight="72.0" fitWidth="68.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ImgBank" blendMode="DARKEN" fitHeight="72.0" fitWidth="68.0" layoutX="29.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Downloads/bank-icon-logo-design-vector.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="BtnNotifications" layoutX="20.0" layoutY="288.0" mnemonicParsing="false" text="Notifications" />
-            <Button fx:id="BtnProfile" layoutX="34.0" layoutY="330.0" mnemonicParsing="false" text="Profile" />
+            <Label fx:id="ToSettings" alignment="CENTER" layoutX="12.0" layoutY="576.0" prefHeight="27.0" prefWidth="34.0" text="⚙️">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="ToDashboard" blendMode="SRC_ATOP" fitHeight="35.0" fitWidth="45.0" layoutX="42.0" layoutY="108.0" onMouseClicked="#OpenDashboard">
+               <image>
+                  <Image url="@../Items/Home.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ToCards" fitHeight="35.0" fitWidth="45.0" layoutX="42.0" layoutY="208.0">
+               <image>
+                  <Image url="@../Items/cards.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ToHelp" fitHeight="26.0" fitWidth="30.0" layoutX="74.0" layoutY="585.0">
+               <image>
+                  <Image url="@../Items/help.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ToHistory" fitHeight="35.0" fitWidth="45.0" layoutX="43.0" layoutY="311.0">
+               <image>
+                  <Image url="@../Items/history.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ToNotifications" fitHeight="35.0" fitWidth="45.0" layoutX="48.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Items/notifications.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ToTransactions" blendMode="DARKEN" fitHeight="35.0" fitWidth="45.0" layoutX="47.0" layoutY="156.0" onMouseClicked="#OpenTransactions" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Items/transactions1.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <StackPane fx:id="MainDisplayPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="726.0">
          <children>
-            <AnchorPane fx:id="DashboardPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="630.0" prefWidth="734.0" style="-fx-background-color: #d7d8d9;">
+            <AnchorPane fx:id="DashboardPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="630.0" prefWidth="734.0" style="-fx-background-color: #d7d8d9;" visible="false">
                <children>
                   <AnchorPane fx:id="UpperDashboardPane" cache="true" layoutX="6.0" layoutY="2.0" prefHeight="313.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF;">
                      <children>
-                        <ChoiceBox fx:id="CBAccountType" layoutX="229.0" layoutY="15.0" prefHeight="26.0" prefWidth="228.0" value="Select Account" />
+                        <ChoiceBox fx:id="CBAccountType" layoutX="268.0" layoutY="15.0" prefHeight="26.0" prefWidth="228.0" value="Select Account" />
                         <Label fx:id="LblName" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="138.0" text="Hello, Huzefa Aziz">
                            <font>
                               <Font name="Kefa Regular" size="15.0" />
@@ -75,7 +102,7 @@
                            </children>
                         </AnchorPane>
                         <Separator layoutX="340.0" layoutY="76.0" orientation="VERTICAL" prefHeight="224.0" prefWidth="6.0" />
-                        <Separator layoutX="161.0" layoutY="7.0" orientation="VERTICAL" prefHeight="39.0" prefWidth="6.0" />
+                        <Separator layoutX="224.0" layoutY="7.0" orientation="VERTICAL" prefHeight="39.0" prefWidth="6.0" />
                         <Label fx:id="LblAccountType" layoutX="34.0" layoutY="58.0" prefHeight="19.0" prefWidth="228.0" text="Account Type">
                            <font>
                               <Font name="Kefa Regular" size="16.0" />
@@ -90,6 +117,11 @@
                            </children>
                         </StackPane>
                         <Separator layoutX="543.0" layoutY="7.0" orientation="VERTICAL" prefHeight="39.0" prefWidth="6.0" />
+                        <ImageView fx:id="ToProfile" blendMode="DARKEN" fitHeight="35.0" fitWidth="56.0" layoutX="164.0" layoutY="9.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Items/profilee.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                   <Pane fx:id="LatestTransPane" layoutX="29.0" layoutY="368.0" prefHeight="246.0" prefWidth="427.0" style="-fx-background-color: #FFFFFF;">
@@ -115,7 +147,7 @@
                   </Pane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="TransactionsPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+            <AnchorPane fx:id="TransactionsPane" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Pane layoutX="263.0" layoutY="14.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #8e9094;">
                      <children>
@@ -123,7 +155,7 @@
                         <Label alignment="CENTER" layoutX="94.0" layoutY="2.0" prefHeight="39.0" prefWidth="108.0" text="Withdraw" />
                      </children>
                   </Pane>
-                  <AnchorPane fx:id="DepositPane" layoutX="31.0" layoutY="64.0" prefHeight="554.0" prefWidth="664.0" visible="false">
+                  <AnchorPane fx:id="DepositPane" layoutX="31.0" layoutY="64.0" prefHeight="554.0" prefWidth="664.0">
                      <children>
                         <Label fx:id="LblYourBalance" alignment="CENTER" layoutX="47.0" layoutY="27.0" prefHeight="39.0" prefWidth="206.0" style="-fx-background-color: #8e9094;" text="Your Balance : 59,000">
                            <font>
@@ -136,14 +168,14 @@
                         <Label layoutX="274.0" layoutY="116.0" text="Payee Name" />
                         <TextField layoutX="271.0" layoutY="207.0" />
                         <TextField layoutX="271.0" layoutY="264.0" />
-                        <Label layoutX="273.0" layoutY="183.0" text="Account Number" />
+                        <Label layoutX="273.0" layoutY="183.0" text="Account Numer" />
                         <TextField layoutX="271.0" layoutY="321.0" />
                         <Label layoutX="271.0" layoutY="296.0" text="Remarks" />
                         <Button layoutX="324.0" layoutY="386.0" mnemonicParsing="false" text="Send" />
                         <Label layoutX="309.0" layoutY="26.0" prefHeight="40.0" prefWidth="108.0" text="Desposit" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="WithdrawPane" layoutX="31.0" layoutY="59.0" prefHeight="554.0" prefWidth="664.0">
+                  <AnchorPane fx:id="WithdrawPane" layoutX="31.0" layoutY="59.0" prefHeight="554.0" prefWidth="664.0" visible="false">
                      <children>
                         <Label layoutX="304.0" layoutY="37.0" text="Request" />
                         <ChoiceBox fx:id="CBChooseAcc1" layoutX="403.0" layoutY="35.0" prefHeight="26.0" prefWidth="228.0" />

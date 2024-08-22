@@ -15,7 +15,7 @@ Hard :
 - Fraud detection mechanisms.
 - Chatbot integration for customer inquiries. * 
 - Credit/Debit Card Feature. * 
-- Peer-to-peer (P2P) payments. 
+- Peer-to-peer (P2P) payments. $
 - Currency exchange. (API) * 
 - Email, SMS, and push notifications for account activity. * 
 - User-friendly dashboard with customisable widgets.
@@ -28,7 +28,6 @@ Moderate :
 - Ticketing system for issue tracking. 
 - Savings goals and progress tracking. * 
 - Dark mode and accessibility features. 
-- PIN Feature.
 - Financial reports and analytics for users.
 
 Easy : 

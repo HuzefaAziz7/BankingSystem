@@ -13,6 +13,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -21,9 +22,9 @@ public class MainPageController {
 
 	@FXML
 	private Button BtnCards;
-	public ChoiceBox<String> CBAccountType;
+	
 	@FXML
-	private Button BtnDashboard;
+	private Label BtnSettings;
 	@FXML
 	private Button BtnHelp;
 	@FXML
@@ -32,8 +33,8 @@ public class MainPageController {
 	private Button BtnNotifications;
 	@FXML
 	private Button BtnProfile;
-	@FXML
-	private Button BtnSettings;
+	
+//	private Button BtnSettings;
 	@FXML
 	private Button BtnTransactions;
 	@FXML
@@ -69,7 +70,7 @@ public class MainPageController {
 	@FXML
 	private Label LblHello;
 	@FXML
-	private String Name = "HuzefaAziz"; //MainController.DashboardUsername
+	private String Name = "HuzefaAziz"; //MainController.DashboardUsername // ERROR
 	public Label LblName;
 	@FXML
 	public Label LblDateTime;
@@ -107,6 +108,9 @@ public class MainPageController {
 	private AnchorPane UpperDashboardPane;
 	@FXML
 	private AnchorPane WithdrawPane;
+	private ImageView ToDashboard;
+	public ChoiceBox<String> CBAccountType;
+	
 	
 
     
@@ -118,14 +122,14 @@ public class MainPageController {
     }
     
     @FXML
-    void OpenDashboard(ActionEvent event) {
+    void OpenDashboard(MouseEvent event) {
 		 DashboardPane.toFront();
 		 DashboardPane.setVisible(true);
 	     TransactionsPane.setVisible(false);
     }
 
     @FXML
-    void OpenTransactions(ActionEvent event) {
+    void OpenTransactions(MouseEvent event) {
 		 TransactionsPane.toFront();
 		 TransactionsPane.setVisible(true);
 	     DashboardPane.setVisible(false);

@@ -81,7 +81,7 @@ public class LoginPageController {
     
 	@FXML 
 	void initialize() {
-		BasicPriorities();
+//		BasicPriorities();
 	}
 	
 	void BasicPriorities() {
@@ -127,11 +127,12 @@ public class LoginPageController {
 		ImpMethods.generateCustomerID(Branch);
 		ImpMethods.generateAccountNumber(AccountType);
 		ImpMethods.generateCardNum(AccountType);
+		String AccountID = "ACC12345-SAV001";
 		
 //		(String ClientID, String ClientName, String Password, String AccountType, String AccountNumber, String DebitCardNum, 
 //		String PIN, String Email, String MobileNum, String Address, String Branch)
 		if (NewPassword.equals(ConfirmPassword)) { 
-			ImpMethods.NewUserLogin(CustomerID, CustomerName, HashedPassword, AccountType, AccountNumber, DebitCardNum, CVV, ExpiryDate, PIN, Email, MobileNum, Address, Branch);
+			ImpMethods.NewUserLogin(CustomerID, CustomerName, HashedPassword,AccountID, AccountType, AccountNumber, DebitCardNum, CVV, ExpiryDate, PIN, Email, MobileNum, Address, Branch);
 			LblNULP1.setText("New Login Successful.. Please Wait");
 		} 
 		
@@ -146,7 +147,20 @@ public class LoginPageController {
     	ImpMethods.ExistingUserLogin(Username,Password);
     	if (ImpMethods.VerificationResult.equals("Pass")) {
         	LblResult.setText("Login Successful. Please Wait");
-    	}    
+        	try {
+        		Parent NewUserPage = FXMLLoader.load(getClass().getResource("/Fxml_Files/MainPage.fxml"));
+        		Scene scene = new Scene(NewUserPage,850, 630);
+        		Stage NewUserStage = new Stage();
+        		LoginPageController.NewUserStage = NewUserStage ;
+        		NewUserStage.setTitle("New User Page");
+        		NewUserStage.setScene(scene);
+        		NewUserStage.show();
+        		BankingSystemMain.primaryStage.close();
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        	}    
     	else if (ImpMethods.VerificationResult.equals("Fail")){
     		LblResult.setText("Login Failed. Please Try Again");
     	} 

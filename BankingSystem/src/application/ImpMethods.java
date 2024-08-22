@@ -72,25 +72,26 @@ public class ImpMethods {
 
 	  } // DBConnection()
 	
-	static public void NewUserLogin(String CustomerID, String CustomerName, String Password, String AccountType, String AccountNumber, String DebitCardNum, String CVV, String ExpiryDate, String PIN, String Email, String MobileNum, String Address, String Branch) {
+	static public void NewUserLogin(String CustomerID, String CustomerName, String Password,String AccountID, String AccountType, String AccountNumber, String DebitCardNum, String CVV, String ExpiryDate, String PIN, String Email, String MobileNum, String Address, String Branch) {
     	AdminDBConnection();
         try {
             // Prepared Statement for Inserting the Username and HashedPassword into DB.
-        	String[] Info = { CustomerID,  CustomerName,  Password,  AccountType,  AccountNumber,  DebitCardNum, CVV, ExpiryDate,  PIN = null,  Email,  MobileNum,  Address,  Branch};
+        	String[] Info = { CustomerID,  CustomerName,  Password, AccountID,  AccountType,  AccountNumber,  DebitCardNum, CVV, ExpiryDate,  PIN = null,  Email,  MobileNum,  Address,  Branch};
         	
-        	PSUpdate = MyCon.prepareStatement("INSERT INTO ClientInfo(CustomerID,CustomerName,Password,AccountType,AccountNumber,DebitCardNum,CVV,ExpiryDate,PIN,Email,MobileNumber,Address,Branch) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        	PSUpdate = MyCon.prepareStatement("INSERT INTO ClientInfo(CustomerID,CustomerName,Password,AccountID,AccountType,AccountNumber,DebitCardNum,CVV,ExpiryDate,PIN,Email,MobileNumber,Address,Branch) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             
         	for (int i = 0; i < Info.length; i++) {
-        	    if (i == 0 || i == 6 || i == 10) {
+        	    if (i == 0 || i == 7 || i == 11) {
         	        // Use Long.parseLong to avoid NumberFormatException for large numbers
         	        PSUpdate.setLong((i + 1), Long.parseLong(Info[i]));
         	    } else {
         	        PSUpdate.setString((i + 1), Info[i]);
         	    }
         	}
-            int rowsAffected = PSUpdate.executeUpdate();
+        	int rowsAffected = PSUpdate.executeUpdate();
             PSUpdate.close();
             System.out.print("Done");
+            InsertUsedCustomerID();
         } catch (Exception exc) {
             exc.printStackTrace();
         } // Catch.
@@ -98,13 +99,13 @@ public class ImpMethods {
 	
 	static public void ExistingUserLogin(String Username, String Password) {
         String hashedpassword = null;
-
+        AdminDBConnection();
         try {
-            PSUpdate = MyCon.prepareStatement("SELECT Username,UserPassword FROM IdInfo WHERE Username = ?");
+            PSUpdate = MyCon.prepareStatement("SELECT CustomerName,Password FROM ClientInfo WHERE CustomerName = ?");
             PSUpdate.setString(1, Username);
             MyRS = PSUpdate.executeQuery();
             if (MyRS.next()) {
-                hashedpassword = MyRS.getString("UserPassword");
+                hashedpassword = MyRS.getString("Password");
             }
             boolean matched = BCrypt.checkpw(Password, hashedpassword);
             if (matched) {
@@ -142,7 +143,6 @@ public class ImpMethods {
 		int SPart = rand.nextInt(10000,99999) ;
 		
 		LoginPageController.CustomerID  = String.valueOf(FPart) + String.valueOf(SPart);
-		  
 	} // generateCustomerID().
 	
 	static public void generateAccountNumber(String AccType) {
@@ -201,6 +201,18 @@ public class ImpMethods {
         LoginPageController.ExpiryDate = ExpiryDate ;
         
 	} // generateCardNum(). For Debit and Credit.
+	
+	static void InsertUsedCustomerID() {
+		AdminDBConnection();
+		try {
+            PSUpdate = MyCon.prepareStatement("INSERT INTO UsedCustomerID(UsedCustomerID) VALUES (?) ");
+            PSUpdate.setLong(1, Long.parseLong(LoginPageController.CustomerID));
+            int rowsAffected = PSUpdate.executeUpdate();
+            PSUpdate.close();
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } // Catch.
+	} // InsertUsedCustomerID()
 	
 	
 	
