@@ -9,22 +9,5 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class EmailController {
-
-	private ImageView BankImage;
-	private Pane FPOPEmailPane, FPOPMobileNumPane;
-	private AnchorPane FPOptionPane, ForgotPwdPane;
-	private Label LblEmailAddressFP, LblFPCustomerID, LblMainFP, LblMobileNumberFP, LblReqEmail, LblReqNumber;
-	private TextField TxtFieldFPCustomerID;
-
-
-    @FXML
-    void ReqEmail(MouseEvent event) {
-    	System.out.println("Email Sent");
-    }
-
-    @FXML
-    void ReqMobileNumber(MouseEvent event) {
-    	System.out.println("OTP Sent");
-    }
-
-}
+	
+} // Main Class.

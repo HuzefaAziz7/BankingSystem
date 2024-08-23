@@ -214,6 +214,27 @@ public class ImpMethods {
         } // Catch.
 	} // InsertUsedCustomerID()
 	
+	static void BankBalance() { 
+		ClientDBConnection();
+		
+		try {
+	        MyCallStmt = MyCon.prepareCall("{call getBankBalance(?)}");
+	        MyCallStmt.setString(1, "SakinaAziz"); 
+	        MyRS = MyCallStmt.executeQuery();
+
+	        if (MyRS.next()) {
+	            String balance = MyRS.getString("BankBalance");
+	            System.out.println(balance); 
+//	            MainPageController.LblBalanceAmount.setText(balance); 
+	        }
+	    } // try.        
+        catch (Exception exc) {
+            exc.printStackTrace();
+        } // catch.
+		
+    } // BankBalance().
+    
+	
 	
 	
 	

@@ -21,8 +21,7 @@ import javafx.scene.layout.StackPane;
 public class MainPageController {
 
 	@FXML
-	private Button BtnCards;
-	
+	private Button BtnCards;	
 	@FXML
 	private Label BtnSettings;
 	@FXML
@@ -62,9 +61,7 @@ public class MainPageController {
 	@FXML
 	private Pane LatestTransPane;
 	@FXML
-	private Label LblAccountType;
-	@FXML
-	private Label LblBalanceAmount;
+	private Label LblAccountType;	
 	@FXML
 	private Label LblBalanceText;
 	@FXML
@@ -110,6 +107,7 @@ public class MainPageController {
 	private AnchorPane WithdrawPane;
 	private ImageView ToDashboard;
 	public ChoiceBox<String> CBAccountType;
+	public static Label LblBalanceAmount;
 	
 	
 
@@ -137,7 +135,10 @@ public class MainPageController {
     
     void BasicPriorities() {
     	LblName.setText("Hello, " + Name);
-    	DateTime(); 	
+    	DateTime(); 
+    	// LblBalanceAmount.setText("1000");
+    	ImpMethods.BankBalance();
+    	
     } // BasicPriorities(). For Things which must be done before anything.
    
     void DateTime() {
@@ -152,7 +153,7 @@ public class MainPageController {
     } // SelectedAccount().
     
     void BankBalance() {
-    	
+    
     } // BankBalance().
     
     void Cards() {
