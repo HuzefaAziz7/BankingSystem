@@ -21,10 +21,6 @@ public class ImpMethods {
 	 static ResultSet MyRS = null ;
 	 static PreparedStatement PSUpdate = null ; 
 	 static String VerificationResult = null; // Used in ExistingUserLogin().
-	 
-	static void Display() {
-		System.out.println("Connection Successful");
-	}
 	
 	public static void AdminDBConnection() {
 
@@ -39,8 +35,7 @@ public class ImpMethods {
 			
 //	  		Create A Statement 
 	  		MyStmt = MyCon.createStatement();
-	  		
-//	  		System.out.println("Connection to Admin Established");
+	  	
 	  	} // Try.
 		
 	  	catch (Exception exc) {
@@ -62,8 +57,7 @@ public class ImpMethods {
 			
 //	  		Create A Statement 
 	  		MyStmt = MyCon.createStatement();
-	  		
-	  		System.out.println("Connection to Client Established");
+	  	
 	  	} // Try.
 		
 	  	catch (Exception exc) {

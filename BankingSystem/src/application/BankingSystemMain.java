@@ -1,5 +1,7 @@
 package application;
 	
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -9,7 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-import systemserver.*;
+import networking.AdminServer;
 
 
 public class BankingSystemMain extends Application {
@@ -33,10 +35,18 @@ public class BankingSystemMain extends Application {
 	}
 	
 	public static void main(String[] args) {
-		ImpMethods.AdminDBConnection();
-		launch(args);
-	}
+	    ImpMethods.AdminDBConnection();
+	    launch(args);
 
+	    Thread adminServerThread = new Thread(() -> {
+	        try {
+	            AdminServer.main(args);
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    });
+	    adminServerThread.start();
+	}
 }
 
 // Scene Dimensions : 850, 630.

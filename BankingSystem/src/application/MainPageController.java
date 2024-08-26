@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -23,6 +24,7 @@ public class MainPageController {
 	@FXML
 	private Button BtnCards;	
 	@FXML
+
 	private Label BtnSettings;
 	@FXML
 	private Button BtnHelp;
@@ -101,6 +103,7 @@ public class MainPageController {
 	private AnchorPane TransResultPane;
 	@FXML
 	private AnchorPane TransactionsPane;
+    public Button BtnSendAmount;
 	@FXML
 	private AnchorPane UpperDashboardPane;
 	@FXML
@@ -108,6 +111,9 @@ public class MainPageController {
 	private ImageView ToDashboard;
 	public ChoiceBox<String> CBAccountType;
 	public static Label LblBalanceAmount;
+	@FXML
+    private TextField txtFieldSendAmount;
+
 	
 	
 
@@ -167,6 +173,10 @@ public class MainPageController {
     void Offers() {
     	
     } // Offers().
+    
+    public void SendMoney(ActionEvent event) {
+    	System.out.println("Sending Money.");
+    } //SendMoney().
     
     
     
