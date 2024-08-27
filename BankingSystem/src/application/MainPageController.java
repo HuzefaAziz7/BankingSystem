@@ -1,7 +1,13 @@
 package application;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.LocalDateTime; 
 import java.time.format.DateTimeFormatter; 
@@ -21,7 +27,14 @@ import javafx.scene.layout.StackPane;
 import networking.ClientServer;
 
 public class MainPageController {
-
+	
+//	ImpMethods ImpMethods = new ImpMethods();
+	 static CallableStatement MyCallStmt = null ;
+	 static Connection MyCon = null ;
+	 static Statement MyStmt = null ; 
+	 static ResultSet MyRS = null ;
+	 static PreparedStatement PSUpdate = null ; 
+	
 	@FXML
 	private Button BtnCards;	
 	@FXML
@@ -35,8 +48,6 @@ public class MainPageController {
 	private Button BtnNotifications;
 	@FXML
 	private Button BtnProfile;
-	
-//	private Button BtnSettings;
 	@FXML
 	private Button BtnTransactions;
 	@FXML
@@ -111,7 +122,8 @@ public class MainPageController {
 	private AnchorPane WithdrawPane;
 	private ImageView ToDashboard;
 	public ChoiceBox<String> CBAccountType;
-	public static Label LblBalanceAmount;
+	@FXML
+	public Label LblBalanceAmount = new Label();
 	@FXML
     private TextField DPtxtFieldAccNumber;
 
@@ -123,6 +135,15 @@ public class MainPageController {
 
     @FXML
     private TextField DPtxtFieldSendAmount;
+    
+    @FXML
+    private TextField WPAmountField;
+
+    @FXML
+    private TextField WPPayerField;
+
+    @FXML
+    private TextField WPRemarksField;
 
 	
 	
@@ -131,8 +152,6 @@ public class MainPageController {
     @FXML
     void initialize() {
     	BasicPriorities();
-    	CBAccountType.getItems().addAll("Current Account : •••• 7610", "Savings Account : •••• 8243");
-    	CBAccountType.setOnAction(this::SelectedAccount);
     }
     
     @FXML
@@ -151,9 +170,10 @@ public class MainPageController {
     
     void BasicPriorities() {
     	LblName.setText("Hello, " + Name);
+    	CBAccountType.getItems().addAll("Current Account : •••• 7610", "Savings Account : •••• 8243");
+    	CBAccountType.setOnAction(this::SelectedAccount);
+    	BankBalance();
     	DateTime(); 
-    	// LblBalanceAmount.setText("1000");
-    	// ImpMethods.BankBalance();
     	
     } // BasicPriorities(). For Things which must be done before anything.
    
@@ -168,8 +188,23 @@ public class MainPageController {
 //    	System.out.println(MyAccChoice);
     } // SelectedAccount().
     
-    void BankBalance() {
-    
+    void BankBalance() {    	
+    	ImpMethods.ClientDBConnection();
+		
+		try {
+	        MyCallStmt = MyCon.prepareCall("{call getBankBalance(?)}");
+	        MyCallStmt.setString(1, "HuzefaAziz"); 
+	        MyRS = MyCallStmt.executeQuery();
+
+	        if (MyRS.next()) {
+	        	String Balance = MyRS.getString("BankBalance");
+	        	LblBalanceAmount.setText(Balance);
+	        }
+	    } // try.        
+        catch (Exception exc) {
+            exc.printStackTrace();
+        } // catch.
+		
     } // BankBalance().
     
     void Cards() {
@@ -188,17 +223,38 @@ public class MainPageController {
     	
     	String Payee = new String(DPtxtFieldPayeeName.getText());
     	String AccNumber = new String(DPtxtFieldAccNumber.getText());
-    	int Amount = Integer.parseInt(new String(DPtxtFieldSendAmount.getText()));
+    	String xAmount = new String(DPtxtFieldSendAmount.getText());
     	String Remarks = new String(DPtxtFieldRemarks.getText());
-    	TransactionsController.sendMoney(Payee,AccNumber,Amount,Remarks);
+    	if (Payee != null || xAmount != null || AccNumber != null) {
+    		int Amount = Integer.parseInt(xAmount);
+    		TransactionsController.sendMoney(Payee,AccNumber,Amount,Remarks);
+    	}
+    	
+    	else {
+    		System.out.println("Please fill all the fields properly.");
+    	}
+    	
     	
     } //SendMoney().
     
-    public void requestMoney() {
+    public void requestMoney(ActionEvent event) {
+    	
+    	String Payer = new String(WPPayerField.getText());
+    	String xAmount = new String(WPAmountField.getText());
+    	String Remarks = new String(WPRemarksField.getText());
+    	if (Payer != null || xAmount != null ) {
+    		int Amount = Integer.parseInt(xAmount);
+    		TransactionsController.requestMoney(Payer,Amount,Remarks);
+    	}
+    	
+    	else {
+    		System.out.println("Please fill all the fields properly.");
+    	}
+    	
     	
     } // requestMoney().
     
-    public void viaLinkMoney() {
+    public void viaLinkMoney(ActionEvent event) {
     	
     } // viaLinkMoney().
     

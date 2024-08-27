@@ -9,7 +9,7 @@ public class AdminServer {
     public static void main(String[] args) throws IOException {
     	
         ServerSocket svrsocket = new ServerSocket(5253);
-        System.out.println("Server Started.");
+//        System.out.println("Server Started.");
         int count = 0;
 
         while (true) {
@@ -60,12 +60,12 @@ class ClientHandler extends Thread {
 
             try {
                 // Ask user.
-                dos.writeUTF("Connection established to Server.");
+//                dos.writeUTF("Connection established to Server.");
 
                 recv = dis.readUTF();
-//              System.out.println(recv);
+                System.out.println(recv);	
                 
-                dos.writeUTF("Server says : " + recv);
+//                dos.writeUTF(recv);
 
             } catch (Exception e) {
 

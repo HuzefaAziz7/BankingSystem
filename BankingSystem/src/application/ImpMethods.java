@@ -21,6 +21,7 @@ public class ImpMethods {
 	 static ResultSet MyRS = null ;
 	 static PreparedStatement PSUpdate = null ; 
 	 static String VerificationResult = null; // Used in ExistingUserLogin().
+// 	 MainPageController MainPageController = new MainPageController();
 	
 	public static void AdminDBConnection() {
 
@@ -208,25 +209,24 @@ public class ImpMethods {
         } // Catch.
 	} // InsertUsedCustomerID()
 	
-	static void BankBalance() { 
-		ClientDBConnection();
-		
-		try {
-	        MyCallStmt = MyCon.prepareCall("{call getBankBalance(?)}");
-	        MyCallStmt.setString(1, "SakinaAziz"); 
-	        MyRS = MyCallStmt.executeQuery();
-
-	        if (MyRS.next()) {
-	            String balance = MyRS.getString("BankBalance");
-	            System.out.println(balance); 
-//	            MainPageController.LblBalanceAmount.setText(balance); 
-	        }
-	    } // try.        
-        catch (Exception exc) {
-            exc.printStackTrace();
-        } // catch.
-		
-    } // BankBalance().
+//	public void BankBalance() { 
+//		ClientDBConnection();
+//		
+//		try {
+//	        MyCallStmt = MyCon.prepareCall("{call getBankBalance(?)}");
+//	        MyCallStmt.setString(1, "HuzefaAziz"); 
+//	        MyRS = MyCallStmt.executeQuery();
+//
+//	        if (MyRS.next()) {
+//	        	String Balance = MyRS.getString("BankBalance");
+//	        	MainPageController.LblBalanceAmount.setText(Balance);
+//	        }
+//	    } // try.        
+//        catch (Exception exc) {
+//            exc.printStackTrace();
+//        } // catch.
+//		
+//    } // BankBalance().
     
 	
 	

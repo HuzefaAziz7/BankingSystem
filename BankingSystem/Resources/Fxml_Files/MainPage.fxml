@@ -63,7 +63,7 @@
       </AnchorPane>
       <StackPane fx:id="MainDisplayPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="726.0">
          <children>
-            <AnchorPane fx:id="DashboardPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="630.0" prefWidth="734.0" style="-fx-background-color: #d7d8d9;" visible="false">
+            <AnchorPane fx:id="DashboardPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="630.0" prefWidth="734.0" style="-fx-background-color: #d7d8d9;">
                <children>
                   <AnchorPane fx:id="UpperDashboardPane" cache="true" layoutX="6.0" layoutY="2.0" prefHeight="313.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF;">
                      <children>
@@ -79,12 +79,12 @@
                            </font></Label>
                         <AnchorPane layoutX="35.0" layoutY="94.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="280.0" style="-fx-background-color: #e6e7e8;">
                            <children>
-                              <Label fx:id="LblBalanceAmount" alignment="CENTER" layoutX="5.0" layoutY="69.0" prefHeight="50.0" prefWidth="273.0" text="53,120,749">
+                              <Label fx:id="LblBalanceAmount" alignment="CENTER" layoutX="5.0" layoutY="69.0" prefHeight="50.0" prefWidth="273.0">
                                  <font>
                                     <Font name="Avenir Black Oblique" size="32.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="LblBalanceText" layoutX="32.0" layoutY="20.0" prefHeight="17.0" prefWidth="123.0" text="Balance">
+                              <Label layoutX="32.0" layoutY="20.0" prefHeight="17.0" prefWidth="123.0" text="Balance">
                                  <font>
                                     <Font name="Kefa Regular" size="20.0" />
                                  </font>
@@ -147,7 +147,7 @@
                   </Pane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="TransactionsPane" prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane fx:id="TransactionsPane" prefHeight="200.0" prefWidth="200.0" visible="false">
                <children>
                   <Pane layoutX="263.0" layoutY="14.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #8e9094;">
                      <children>
@@ -155,7 +155,7 @@
                         <Label alignment="CENTER" layoutX="94.0" layoutY="2.0" prefHeight="39.0" prefWidth="108.0" text="Withdraw" />
                      </children>
                   </Pane>
-                  <AnchorPane fx:id="DepositPane" layoutX="31.0" layoutY="64.0" prefHeight="554.0" prefWidth="664.0" visible="false">
+                  <AnchorPane fx:id="DepositPane" layoutX="31.0" layoutY="64.0" prefHeight="554.0" prefWidth="664.0">
                      <children>
                         <Label fx:id="LblYourBalance" alignment="CENTER" layoutX="47.0" layoutY="27.0" prefHeight="39.0" prefWidth="206.0" style="-fx-background-color: #8e9094;" text="Your Balance : 59,000">
                            <font>
@@ -172,10 +172,10 @@
                         <TextField fx:id="DPtxtFieldRemarks" layoutX="271.0" layoutY="321.0" />
                         <Label layoutX="271.0" layoutY="296.0" text="Remarks" />
                         <Button fx:id="BtnSendAmount" layoutX="324.0" layoutY="386.0" mnemonicParsing="false" onAction="#SendMoney" prefHeight="26.0" prefWidth="45.0" text="Pay" />
-                        <Label layoutX="309.0" layoutY="26.0" prefHeight="40.0" prefWidth="108.0" text="Desposit" />
+                        <Label layoutX="309.0" layoutY="26.0" prefHeight="40.0" prefWidth="108.0" text="Pay" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="WithdrawPane" layoutX="31.0" layoutY="59.0" prefHeight="554.0" prefWidth="664.0">
+                  <AnchorPane fx:id="WithdrawPane" layoutX="31.0" layoutY="59.0" prefHeight="554.0" prefWidth="664.0" visible="false">
                      <children>
                         <Label layoutX="304.0" layoutY="37.0" text="Request" />
                         <ChoiceBox fx:id="CBChooseAcc1" layoutX="403.0" layoutY="35.0" prefHeight="26.0" prefWidth="228.0" />

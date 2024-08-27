@@ -8,8 +8,8 @@ public class TransactionsController {
     	ClientServer.sendMoney(Payee,AccNumber,Amount,Remarks);
 	} // sendMoney().
 	
-	static public void requestMoney(String Payee, String AccNumber, int Amount,String Remarks) {
-    	ClientServer.requestMoney(Payee,AccNumber,Amount,Remarks);
+	static public void requestMoney(String Payer, int Amount, String Remarks) {
+    	ClientServer.requestMoney(Payer,Amount,Remarks);
 	} // sendMoney().
 	
 	static public void checkBalance() {

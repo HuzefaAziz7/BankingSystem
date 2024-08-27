@@ -31,7 +31,7 @@ public class ClientServer {
             	
             	ClientServer ClientServer = new ClientServer(socket, dis, dos);
                 System.out.println(dis.readUTF());
-                String toSend = Payee + " has sent " + Amount + " to your account..!!" + " Remarks : " + Remarks ;
+                String toSend = Payee + " has sent " + Amount + " to your account." + " Remarks : " + Remarks ;
                 dos.writeUTF(toSend);
 
                 String received = dis.readUTF();
@@ -46,13 +46,13 @@ public class ClientServer {
 
     } // sendMoney().
 
-    static public void requestMoney(String Payee, String AccNumber, int Amount,String Remarks) {
+    static public void requestMoney(String Payer, int Amount, String Remarks) {
 
         try {
             while (true) {
             	ClientServer ClientServer = new ClientServer(socket, dis, dos);
                 System.out.println(dis.readUTF());
-                String toSend = Payee + " has requested " + Amount + " to your account..!!" + " Remarks : " + Remarks ;
+                String toSend = Payer + " has requested " + Amount + " from your account." + " Remarks : " + Remarks ;
                 dos.writeUTF(toSend);
 
                 String received = dis.readUTF();
