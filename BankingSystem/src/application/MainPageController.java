@@ -18,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import networking.ClientServer;
 
 public class MainPageController {
 
@@ -112,7 +113,16 @@ public class MainPageController {
 	public ChoiceBox<String> CBAccountType;
 	public static Label LblBalanceAmount;
 	@FXML
-    private TextField txtFieldSendAmount;
+    private TextField DPtxtFieldAccNumber;
+
+    @FXML
+    private TextField DPtxtFieldPayeeName;
+
+    @FXML
+    private TextField DPtxtFieldRemarks;
+
+    @FXML
+    private TextField DPtxtFieldSendAmount;
 
 	
 	
@@ -143,7 +153,7 @@ public class MainPageController {
     	LblName.setText("Hello, " + Name);
     	DateTime(); 
     	// LblBalanceAmount.setText("1000");
-    	ImpMethods.BankBalance();
+    	// ImpMethods.BankBalance();
     	
     } // BasicPriorities(). For Things which must be done before anything.
    
@@ -175,10 +185,22 @@ public class MainPageController {
     } // Offers().
     
     public void SendMoney(ActionEvent event) {
-    	System.out.println("Sending Money.");
+    	
+    	String Payee = new String(DPtxtFieldPayeeName.getText());
+    	String AccNumber = new String(DPtxtFieldAccNumber.getText());
+    	int Amount = Integer.parseInt(new String(DPtxtFieldSendAmount.getText()));
+    	String Remarks = new String(DPtxtFieldRemarks.getText());
+    	TransactionsController.sendMoney(Payee,AccNumber,Amount,Remarks);
+    	
     } //SendMoney().
     
+    public void requestMoney() {
+    	
+    } // requestMoney().
     
+    public void viaLinkMoney() {
+    	
+    } // viaLinkMoney().
     
     
     

@@ -155,7 +155,7 @@
                         <Label alignment="CENTER" layoutX="94.0" layoutY="2.0" prefHeight="39.0" prefWidth="108.0" text="Withdraw" />
                      </children>
                   </Pane>
-                  <AnchorPane fx:id="DepositPane" layoutX="31.0" layoutY="64.0" prefHeight="554.0" prefWidth="664.0">
+                  <AnchorPane fx:id="DepositPane" layoutX="31.0" layoutY="64.0" prefHeight="554.0" prefWidth="664.0" visible="false">
                      <children>
                         <Label fx:id="LblYourBalance" alignment="CENTER" layoutX="47.0" layoutY="27.0" prefHeight="39.0" prefWidth="206.0" style="-fx-background-color: #8e9094;" text="Your Balance : 59,000">
                            <font>
@@ -164,18 +164,18 @@
                         </Label>
                         <ChoiceBox fx:id="CBChooseAcc" layoutX="426.0" layoutY="33.0" prefHeight="26.0" prefWidth="228.0" />
                         <Label layoutX="275.0" layoutY="240.0" prefHeight="17.0" prefWidth="68.0" text="Amount" />
-                        <TextField layoutX="271.0" layoutY="145.0" />
+                        <TextField fx:id="DPtxtFieldPayeeName" layoutX="271.0" layoutY="145.0" />
                         <Label layoutX="274.0" layoutY="116.0" text="Payee Name" />
-                        <TextField layoutX="271.0" layoutY="207.0" />
-                        <TextField fx:id="txtFieldSendAmount" layoutX="271.0" layoutY="264.0" />
+                        <TextField fx:id="DPtxtFieldAccNumber" layoutX="271.0" layoutY="207.0" />
+                        <TextField fx:id="DPtxtFieldSendAmount" layoutX="271.0" layoutY="264.0" />
                         <Label layoutX="273.0" layoutY="183.0" text="Account Numer" />
-                        <TextField layoutX="271.0" layoutY="321.0" />
+                        <TextField fx:id="DPtxtFieldRemarks" layoutX="271.0" layoutY="321.0" />
                         <Label layoutX="271.0" layoutY="296.0" text="Remarks" />
-                        <Button fx:id="BtnSendAmount" layoutX="324.0" layoutY="386.0" mnemonicParsing="false" onAction="#SendMoney" text="Send" />
+                        <Button fx:id="BtnSendAmount" layoutX="324.0" layoutY="386.0" mnemonicParsing="false" onAction="#SendMoney" prefHeight="26.0" prefWidth="45.0" text="Pay" />
                         <Label layoutX="309.0" layoutY="26.0" prefHeight="40.0" prefWidth="108.0" text="Desposit" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="WithdrawPane" layoutX="31.0" layoutY="59.0" prefHeight="554.0" prefWidth="664.0" visible="false">
+                  <AnchorPane fx:id="WithdrawPane" layoutX="31.0" layoutY="59.0" prefHeight="554.0" prefWidth="664.0">
                      <children>
                         <Label layoutX="304.0" layoutY="37.0" text="Request" />
                         <ChoiceBox fx:id="CBChooseAcc1" layoutX="403.0" layoutY="35.0" prefHeight="26.0" prefWidth="228.0" />
@@ -185,13 +185,13 @@
                            </font>
                         </Label>
                         <Label layoutX="264.0" layoutY="249.0" prefHeight="17.0" prefWidth="68.0" text="Amount" />
-                        <TextField layoutX="262.0" layoutY="204.0" />
+                        <TextField fx:id="WPPayerField" layoutX="262.0" layoutY="204.0" />
                         <Label layoutX="265.0" layoutY="175.0" text="Payer Name" />
-                        <TextField layoutX="258.0" layoutY="281.0" />
-                        <TextField layoutX="257.0" layoutY="352.0" />
+                        <TextField fx:id="WPAmountField" layoutX="258.0" layoutY="281.0" />
+                        <TextField fx:id="WPRemarksField" layoutX="257.0" layoutY="352.0" />
                         <Label layoutX="257.0" layoutY="327.0" text="Remarks" />
-                        <Button focusTraversable="false" layoutX="265.0" layoutY="415.0" mnemonicParsing="false" text="Send" />
-                        <Button layoutX="338.0" layoutY="415.0" mnemonicParsing="false" text="Via Link" />
+                        <Button fx:id="WPRequestMoneyBtn" focusTraversable="false" layoutX="258.0" layoutY="415.0" mnemonicParsing="false" onAction="#requestMoney" text="Request" />
+                        <Button fx:id="WPviaLinkMoneyBtn" layoutX="338.0" layoutY="415.0" mnemonicParsing="false" onAction="#viaLinkMoney" text="via Link" />
                         <Label alignment="CENTER_RIGHT" layoutX="224.0" layoutY="281.0" prefHeight="24.0" prefWidth="30.0" text="₹">
                            <font>
                               <Font size="15.0" />

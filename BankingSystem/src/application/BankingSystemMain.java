@@ -36,8 +36,7 @@ public class BankingSystemMain extends Application {
 	
 	public static void main(String[] args) {
 	    ImpMethods.AdminDBConnection();
-	    launch(args);
-
+	    
 	    Thread adminServerThread = new Thread(() -> {
 	        try {
 	            AdminServer.main(args);
@@ -46,6 +45,8 @@ public class BankingSystemMain extends Application {
 	        }
 	    });
 	    adminServerThread.start();
+	    
+	    launch(args);
 	}
 }
 

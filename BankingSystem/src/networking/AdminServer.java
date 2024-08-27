@@ -13,7 +13,7 @@ public class AdminServer {
         int count = 0;
 
         while (true) {
-            System.out.println("Number of Clients connected: " + count);
+//            System.out.println("Number of Clients connected: " + count); 
             Socket socket = null;
 
             try {
@@ -63,7 +63,9 @@ class ClientHandler extends Thread {
                 dos.writeUTF("Connection established to Server.");
 
                 recv = dis.readUTF();
-                System.out.println(recv);
+//              System.out.println(recv);
+                
+                dos.writeUTF("Server says : " + recv);
 
             } catch (Exception e) {
 
