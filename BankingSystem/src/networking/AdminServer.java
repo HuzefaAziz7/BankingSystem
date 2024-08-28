@@ -60,7 +60,7 @@ class ClientHandler extends Thread {
 
             try {
                 // Ask user.
-//                dos.writeUTF("Connection established to Server.");
+            	dos.writeUTF("Server Connected.");
 
                 recv = dis.readUTF();
                 System.out.println(recv);	

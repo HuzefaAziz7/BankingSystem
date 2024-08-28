@@ -171,7 +171,7 @@
                         <Label layoutX="273.0" layoutY="183.0" text="Account Numer" />
                         <TextField fx:id="DPtxtFieldRemarks" layoutX="271.0" layoutY="321.0" />
                         <Label layoutX="271.0" layoutY="296.0" text="Remarks" />
-                        <Button fx:id="BtnSendAmount" layoutX="324.0" layoutY="386.0" mnemonicParsing="false" onAction="#SendMoney" prefHeight="26.0" prefWidth="45.0" text="Pay" />
+                        <Button fx:id="BtnSendAmount" layoutX="324.0" layoutY="386.0" mnemonicParsing="false" onAction="#sendMoney" prefHeight="26.0" prefWidth="45.0" text="Pay" />
                         <Label layoutX="309.0" layoutY="26.0" prefHeight="40.0" prefWidth="108.0" text="Pay" />
                      </children>
                   </AnchorPane>

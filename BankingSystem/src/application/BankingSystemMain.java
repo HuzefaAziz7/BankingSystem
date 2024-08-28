@@ -21,7 +21,7 @@ public class BankingSystemMain extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			BankingSystemMain.primaryStage = primaryStage;
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml_Files/MainPage.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/FrontLoginPage.fxml")); // /Fxml_Files
 			Parent root = loader.load(); 
 			Scene scene = new Scene(root,850, 630);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -44,9 +44,17 @@ public class BankingSystemMain extends Application {
 	            e.printStackTrace();
 	        }
 	    });
+	    System.out.println("Starting the AdminServer...");
 	    adminServerThread.start();
+	    System.out.println("AdminServer Started...");
 	    
+	    
+        System.out.println("64");
 	    launch(args);
+	    System.out.println("66");
+	    
+
+        
 	}
 }
 

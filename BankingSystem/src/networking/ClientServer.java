@@ -24,19 +24,17 @@ public class ClientServer {
     } // ClientServer().
     
     static public void sendMoney(String Payee, String AccNumber, int Amount,String Remarks) {
-
         try {
         	
             while (true) {
-            	
             	ClientServer ClientServer = new ClientServer(socket, dis, dos);
                 System.out.println(dis.readUTF());
                 String toSend = Payee + " has sent " + Amount + " to your account." + " Remarks : " + Remarks ;
                 dos.writeUTF(toSend);
-
                 String received = dis.readUTF();
                 System.out.println(received);
                 break;
+                
             }
 
         } catch (Exception e) {
