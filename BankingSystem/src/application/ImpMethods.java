@@ -87,6 +87,8 @@ public class ImpMethods {
             PSUpdate.close();
             System.out.print("Done");
             InsertUsedCustomerID();
+            String table = String.valueOf(CustomerID);
+            newUserTable(CustomerID);
         } catch (Exception exc) {
             exc.printStackTrace();
         } // Catch.
@@ -197,6 +199,29 @@ public class ImpMethods {
         
 	} // generateCardNum(). For Debit and Credit.
 	
+	
+	
+	
+	
+	
+	
+	static public void generateReqLink() {
+		
+	} // generateReqLink(). 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	static void InsertUsedCustomerID() {
 		AdminDBConnection();
 		try {
@@ -209,24 +234,28 @@ public class ImpMethods {
         } // Catch.
 	} // InsertUsedCustomerID()
 	
-//	public void BankBalance() { 
-//		ClientDBConnection();
-//		
-//		try {
-//	        MyCallStmt = MyCon.prepareCall("{call getBankBalance(?)}");
-//	        MyCallStmt.setString(1, "HuzefaAziz"); 
-//	        MyRS = MyCallStmt.executeQuery();
-//
-//	        if (MyRS.next()) {
-//	        	String Balance = MyRS.getString("BankBalance");
-//	        	MainPageController.LblBalanceAmount.setText(Balance);
-//	        }
-//	    } // try.        
-//        catch (Exception exc) {
-//            exc.printStackTrace();
-//        } // catch.
-//		
-//    } // BankBalance().
+	static void newUserTable(String tableName) {
+		ClientDBConnection();
+		
+		try {
+			PSUpdate = MyCon.prepareStatement("CREATE TABLE " + tableName + " (\n"
+	  				+ "  `SrNo` int NOT NULL AUTO_INCREMENT,\n"
+	  				+ "  `DateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,\n"
+	  				+ "  `Payee` varchar(45) NOT NULL,\n"
+	  				+ "  `Amount` int NOT NULL,\n"
+	  				+ "  `Payer` varchar(45) NOT NULL,\n"
+	  				+ "  `TransStatus` varchar(45) NOT NULL,\n"
+	  				+ "  `TransType` varchar(45) NOT NULL,\n"
+	  				+ "  UNIQUE KEY `SrNo_UNIQUE` (`SrNo`)\n"
+	  				+ ")");
+            int rowsAffected = PSUpdate.executeUpdate();
+            PSUpdate.close();
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } // Catch.
+		
+	} // New Table(). is made everytime a new user is entered in the database. 
     
 	
 	

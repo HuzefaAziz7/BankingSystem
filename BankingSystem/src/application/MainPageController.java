@@ -108,7 +108,7 @@ public class MainPageController {
     @FXML
     private AnchorPane WithdrawPane;
     private ImageView ToDashboard;
-    public ChoiceBox<String> CBAccountType;
+
     @FXML
     public Label LblBalanceAmount = new Label();
     @FXML
@@ -117,6 +117,7 @@ public class MainPageController {
     private TextField DPtxtFieldPayeeName;
     @FXML
     private TextField DPtxtFieldRemarks;
+    public ChoiceBox<String> CBAccountType;
     @FXML
     private TextField DPtxtFieldSendAmount;
     @FXML

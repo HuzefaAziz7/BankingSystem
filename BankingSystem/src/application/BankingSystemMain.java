@@ -25,6 +25,7 @@ public class BankingSystemMain extends Application {
 			Parent root = loader.load(); 
 			Scene scene = new Scene(root,850, 630);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setTitle("Capital Bank");
 			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -44,14 +45,13 @@ public class BankingSystemMain extends Application {
 	            e.printStackTrace();
 	        }
 	    });
-	    System.out.println("Starting the AdminServer...");
+//	    System.out.println("Starting the AdminServer...");
 	    adminServerThread.start();
-	    System.out.println("AdminServer Started...");
+//	    System.out.println("AdminServer Started...");
 	    
-	    
-        System.out.println("64");
+	   
 	    launch(args);
-	    System.out.println("66");
+	   
 	    
 
         
