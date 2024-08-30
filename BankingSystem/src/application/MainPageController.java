@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import networking.TransactionsController;
 import javafx.scene.control.ChoiceBox;
 
 import java.sql.*;
@@ -150,7 +151,7 @@ public class MainPageController {
         LblName.setText("Hello, " + Name);
         CBAccountType.getItems().addAll("Current Account : •••• 7610", "Savings Account : •••• 8243");
         CBAccountType.setOnAction(this::SelectedAccount);
-        BankBalance();
+        bankBalance();
         DateTime();
     }
 
@@ -164,7 +165,7 @@ public class MainPageController {
         LblAccountType.setText(MyAccChoice);
     }
 
-    void BankBalance() {
+    void bankBalance() {
         ImpMethods.ClientDBConnection();
 
         try {

@@ -15,12 +15,12 @@ import org.mindrot.jbcrypt.BCrypt;
 
 public class ImpMethods {
 	 
-	 static CallableStatement MyCallStmt = null ;
-	 static Connection MyCon = null ;
-	 static Statement MyStmt = null ; 
-	 static ResultSet MyRS = null ;
-	 static PreparedStatement PSUpdate = null ; 
-	 static String VerificationResult = null; // Used in ExistingUserLogin().
+	 public static CallableStatement MyCallStmt = null ;
+	 public static Connection MyCon = null ;
+	 public static Statement MyStmt = null ; 
+	 public static ResultSet MyRS = null ;
+	 public static PreparedStatement PSUpdate = null ; 
+	 public static String VerificationResult = null; // Used in ExistingUserLogin().
 // 	 MainPageController MainPageController = new MainPageController();
 	
 	public static void AdminDBConnection() {

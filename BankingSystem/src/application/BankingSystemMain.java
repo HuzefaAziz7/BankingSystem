@@ -39,11 +39,7 @@ public class BankingSystemMain extends Application {
 	    ImpMethods.AdminDBConnection();
 	    
 	    Thread adminServerThread = new Thread(() -> {
-	        try {
-	            AdminServer.main(args);
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
+	        AdminServer.main(args);
 	    });
 //	    System.out.println("Starting the AdminServer...");
 	    adminServerThread.start();

@@ -6,34 +6,40 @@ import java.util.*;
 
 public class AdminServer {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
     	
-        ServerSocket svrsocket = new ServerSocket(5253);
-//        System.out.println("Server Started.");
-        int count = 0;
+    	try {
+    		ServerSocket svrsocket = new ServerSocket(5253);
+          System.out.println("Server Started.");
+          int count = 0;
 
-        while (true) {
+          while (true) {
 //            System.out.println("Number of Clients connected: " + count); 
-            Socket socket = null;
+              Socket socket = null;
 
-            try {
-                count++;
-                socket = svrsocket.accept();
+              try {
+                  count++;
+                  socket = svrsocket.accept();
 
-                DataInputStream dis = new DataInputStream(socket.getInputStream());
-                DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+                  DataInputStream dis = new DataInputStream(socket.getInputStream());
+                  DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
-                System.out.println("Assigning a new thread for this client: " + count);
+                  System.out.println("Assigning a new thread for this client : " + count);
 
-                Thread t = new ClientHandler(socket, dis, dos);
+                  Thread t = new ClientHandler(socket, dis, dos);
 
-                t.start();
+                  t.start();
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+              } catch (Exception e) {
+                  e.printStackTrace();
+              }
 
+          }
+    	} catch (Exception e) {
+            System.out.println("Server Denied.");
+            e.printStackTrace();
         }
+        
 
     }
 
@@ -59,19 +65,37 @@ class ClientHandler extends Thread {
         while (true) {
 
             try {
-                // Ask user.
-            	dos.writeUTF("Server Connected.");
-
-                recv = dis.readUTF();
-                System.out.println(recv);	
+            	String Payer = dis.readUTF();
+            	System.out.println("Payer : "+ Payer);
+                dos.writeUTF("Server connection established to : " + Payer);
                 
-//                dos.writeUTF(recv);
-
+                String Payee = dis.readUTF();
+                System.out.println("Payee : "+Payee);
+                
+                int Amount = dis.readInt();
+                System.out.println("Amount : "+ Amount);
+                
+                boolean result = TransManager.Trans(Amount, Payee) ; // 
+                System.out.println(result);
+                
+                if (result) {
+                	recv = dis.readUTF();
+                    System.out.println(recv);
+                    
+                    dos.writeUTF("Transaction Completed.");
+                }
+                
+                else {
+                	dos.writeUTF("Transaction Failed.");
+                }
+                
+                break;
+                
             } catch (Exception e) {
 
             }
         }
 
-    }
+    } // run().
 
 }
