@@ -10,11 +10,11 @@ public class AdminServer {
     	
     	try {
     		ServerSocket svrsocket = new ServerSocket(5253);
-          System.out.println("Server Started.");
+//          System.out.println("Server Started.");
           int count = 0;
 
           while (true) {
-//            System.out.println("Number of Clients connected: " + count); 
+             
               Socket socket = null;
 
               try {
@@ -61,11 +61,10 @@ class ClientHandler extends Thread {
     public void run() {
         String recv;
         String toReturn;
-        System.out.println("AS Line 64");
+        
         while (true) {
 
             try {
-            	System.out.println("AS Line 68");
             	
             	String Payer = dis.readUTF();
             	System.out.println("Payer : "+ Payer);
@@ -76,9 +75,6 @@ class ClientHandler extends Thread {
                 
                 int Amount = dis.readInt();
                 System.out.println("Amount : "+ Amount);
-            	System.out.println("AS Line 71");
-                
-                System.out.println("AS Line 77");
                 
                 boolean result = TransactionsController.checkTrans(Amount, Payee) ; // 
                 System.out.println("Transaction Result is : " + result);

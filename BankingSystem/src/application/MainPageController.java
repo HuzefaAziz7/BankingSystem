@@ -128,11 +128,10 @@ public class MainPageController {
     @FXML
     private TextField WPRemarksField;
     
-    // ERROR .. !!!
+    
     public MainPageController() {
-    	System.out.println("Contructor");
+    	
     } // Contructor.
-    // ---
     
     @FXML
     void initialize() {
@@ -190,7 +189,6 @@ public class MainPageController {
 
             if (MyRS.next()) {
                 result = MyRS.getInt("BankBalance");
-                System.out.println(result);
             }
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
@@ -216,14 +214,12 @@ public class MainPageController {
     }
 
     public void sendMoney(ActionEvent event) {
-    	System.out.println("MPC Line 207");
         String Payee = DPtxtFieldPayeeName.getText();
         String AccNumber = DPtxtFieldAccNumber.getText();
         String xAmount = DPtxtFieldSendAmount.getText();
         String Remarks = DPtxtFieldRemarks.getText();
         if (Payee != null || xAmount != null || AccNumber != null) {
             int Amount = Integer.parseInt(xAmount);
-            System.out.println("MPC Line 214");
             TransactionsController.sendMoney(Payee, AccNumber, Amount, Remarks);
         } else {
             System.out.println("Please fill all the fields properly.");

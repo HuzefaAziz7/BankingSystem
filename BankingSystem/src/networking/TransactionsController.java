@@ -34,7 +34,6 @@ public class TransactionsController {
 	} // trans 
     
 	static public void sendMoney(String Payee, String AccNumber, int Amount,String Remarks) {
-		System.out.println("TC Line 37");
     	ClientServer.sendMoney(Payee,Amount,Remarks); // AccNumber.
 	} // sendMoney().
 	
