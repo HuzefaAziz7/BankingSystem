@@ -14,9 +14,28 @@ public class TransactionsController {
     static ResultSet MyRS = null;
     static PreparedStatement PSUpdate = null;
 	
+    static boolean checkTrans(int amount, String Payee) {
+		boolean result = false ;
+		
+		if (checkBalance(amount)) {
+			System.out.println("Sufficient amount.");
+			if (checkPayeeDB(Payee)) {
+				System.out.println("Payee found.");
+				result = true ;
+			} else {
+				System.out.println("Payee not found");
+				result = false ;
+			} 
 			
+		} else {
+			System.out.println("Insufficient amount.");
+		}
+		return result ; 
+	} // trans 
+    
 	static public void sendMoney(String Payee, String AccNumber, int Amount,String Remarks) {
-    	ClientServer.sendMoney(Payee,AccNumber,Amount,Remarks);
+		System.out.println("TC Line 37");
+    	ClientServer.sendMoney(Payee,Amount,Remarks); // AccNumber.
 	} // sendMoney().
 	
 	static public void requestMoney(String Payer, int Amount, String Remarks) {

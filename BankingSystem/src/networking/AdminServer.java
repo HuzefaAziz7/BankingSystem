@@ -61,22 +61,27 @@ class ClientHandler extends Thread {
     public void run() {
         String recv;
         String toReturn;
-
+        System.out.println("AS Line 64");
         while (true) {
 
             try {
+            	System.out.println("AS Line 68");
+            	
             	String Payer = dis.readUTF();
             	System.out.println("Payer : "+ Payer);
                 dos.writeUTF("Server connection established to : " + Payer);
                 
                 String Payee = dis.readUTF();
-                System.out.println("Payee : "+Payee);
+                System.out.println("Payee : "+ Payee);
                 
                 int Amount = dis.readInt();
                 System.out.println("Amount : "+ Amount);
+            	System.out.println("AS Line 71");
                 
-                boolean result = TransManager.Trans(Amount, Payee) ; // 
-                System.out.println(result);
+                System.out.println("AS Line 77");
+                
+                boolean result = TransactionsController.checkTrans(Amount, Payee) ; // 
+                System.out.println("Transaction Result is : " + result);
                 
                 if (result) {
                 	recv = dis.readUTF();

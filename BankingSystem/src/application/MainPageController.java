@@ -16,7 +16,7 @@ import java.sql.*;
 import java.time.LocalDate;
 
 public class MainPageController {
-
+	
     static CallableStatement MyCallStmt = null;
     static Connection MyCon = null;
     static Statement MyStmt = null;
@@ -68,7 +68,7 @@ public class MainPageController {
     @FXML
     private Label LblHello;
     @FXML
-    private String Name = LoginPageController.DashboardUsername ; 
+    private static String Name = "HuzefaAziz"; // LoginPageController.DashboardUsername ;
     
     public Label LblName;
     @FXML
@@ -127,7 +127,13 @@ public class MainPageController {
     private TextField WPPayerField;
     @FXML
     private TextField WPRemarksField;
-
+    
+    // ERROR .. !!!
+    public MainPageController() {
+    	System.out.println("Contructor");
+    } // Contructor.
+    // ---
+    
     @FXML
     void initialize() {
         BasicPriorities();
@@ -151,7 +157,8 @@ public class MainPageController {
         LblName.setText("Hello, " + Name);
         CBAccountType.getItems().addAll("Current Account : •••• 7610", "Savings Account : •••• 8243");
         CBAccountType.setOnAction(this::SelectedAccount);
-        bankBalance();
+        String balance = String.valueOf(bankBalance());
+        LblBalanceAmount.setText(balance);
         DateTime();
     }
 
@@ -165,21 +172,35 @@ public class MainPageController {
         LblAccountType.setText(MyAccChoice);
     }
 
-    void bankBalance() {
+    public static int bankBalance() {
+    	int result = 0 ;
+    	
         ImpMethods.ClientDBConnection();
 
         try {
-        	ImpMethods.MyCallStmt = ImpMethods.MyCon.prepareCall("{call getBankBalance(?)}");
-        	ImpMethods.MyCallStmt.setString(1, Name);
+            if (Name == null || Name.trim().isEmpty()) {
+            	System.out.println("ERROR AT 182 !!!!!!! ");
+                throw new IllegalArgumentException("Name parameter is null or empty");
+            }
+
+            ImpMethods.MyCallStmt = ImpMethods.MyCon.prepareCall("{call getBankBalance(?)}");
+            ImpMethods.MyCallStmt.setString(1, Name);
+
             MyRS = ImpMethods.MyCallStmt.executeQuery();
 
             if (MyRS.next()) {
-                String Balance = MyRS.getString("BankBalance");
-                LblBalanceAmount.setText(Balance);
+                result = MyRS.getInt("BankBalance");
+                System.out.println(result);
             }
+        } catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
         } catch (Exception exc) {
             exc.printStackTrace();
         }
+
+
+        
+        return result;
     }
 
     void Cards() {
@@ -195,12 +216,14 @@ public class MainPageController {
     }
 
     public void sendMoney(ActionEvent event) {
+    	System.out.println("MPC Line 207");
         String Payee = DPtxtFieldPayeeName.getText();
         String AccNumber = DPtxtFieldAccNumber.getText();
         String xAmount = DPtxtFieldSendAmount.getText();
         String Remarks = DPtxtFieldRemarks.getText();
         if (Payee != null || xAmount != null || AccNumber != null) {
             int Amount = Integer.parseInt(xAmount);
+            System.out.println("MPC Line 214");
             TransactionsController.sendMoney(Payee, AccNumber, Amount, Remarks);
         } else {
             System.out.println("Please fill all the fields properly.");
@@ -222,4 +245,4 @@ public class MainPageController {
     public void viaLinkMoney(ActionEvent event) {
         // viaLinkMoney logic here
     }
-}
+} // CLASS.
