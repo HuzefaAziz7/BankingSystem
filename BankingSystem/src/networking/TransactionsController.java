@@ -4,6 +4,7 @@ import java.sql.*;
 
 import application.ImpMethods;
 import application.MainPageController;
+import database.DB_Controller;
 import networking.ClientServer;
 
 public class TransactionsController {
@@ -33,12 +34,12 @@ public class TransactionsController {
 		return result ; 
 	} // trans 
     
-	static public void sendMoney(String Payee, String AccNumber, int Amount,String Remarks) {
-    	ClientServer.sendMoney(Payee,Amount,Remarks); // AccNumber.
+	static public void sendMoneyDB(String Payer, String Payee, String AccNumber, int Amount,String Remarks) {
+		DB_Controller.DB_sendMoney(Payer,Payee,AccNumber,Amount,Remarks);
 	} // sendMoney().
 	
-	static public void requestMoney(String Payer, int Amount, String Remarks) {
-    	ClientServer.requestMoney(Payer,Amount,Remarks);
+	static public void requestMoneyDB(String Payer, int Amount, String Remarks) {
+    	
 	} // sendMoney().
 	
 	public static boolean checkBalance(int amount) { // Check if Payer has the required amount. 

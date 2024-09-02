@@ -65,24 +65,23 @@ class ClientHandler extends Thread {
         while (true) {
 
             try {
+            	String AccNumber = "12345678" ;
+            	String Remarks = "Others" ;
             	
             	String Payer = dis.readUTF();
-            	System.out.println("Payer : "+ Payer);
+//            	System.out.println("Payer : "+ Payer);s
                 dos.writeUTF("Server connection established to : " + Payer);
                 
                 String Payee = dis.readUTF();
-                System.out.println("Payee : "+ Payee);
+//                System.out.println("Payee : "+ Payee);
                 
                 int Amount = dis.readInt();
-                System.out.println("Amount : "+ Amount);
+//                System.out.println("Amount : "+ Amount);
                 
                 boolean result = TransactionsController.checkTrans(Amount, Payee) ; // 
-                System.out.println("Transaction Result is : " + result);
                 
                 if (result) {
-                	recv = dis.readUTF();
-                    System.out.println(recv);
-                    
+                	TransactionsController.sendMoneyDB(Payer, Payee,AccNumber, Amount, Remarks);
                     dos.writeUTF("Transaction Completed.");
                 }
                 

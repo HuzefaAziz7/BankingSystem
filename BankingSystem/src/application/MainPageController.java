@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import networking.ClientServer;
 import networking.TransactionsController;
 import javafx.scene.control.ChoiceBox;
 
@@ -220,7 +221,7 @@ public class MainPageController {
         String Remarks = DPtxtFieldRemarks.getText();
         if (Payee != null || xAmount != null || AccNumber != null) {
             int Amount = Integer.parseInt(xAmount);
-            TransactionsController.sendMoney(Payee, AccNumber, Amount, Remarks);
+            ClientServer.sendMoney(Payee,Amount,Remarks); // AccNumber.
         } else {
             System.out.println("Please fill all the fields properly.");
         }
@@ -232,7 +233,7 @@ public class MainPageController {
         String Remarks = WPRemarksField.getText();
         if (Payer != null || xAmount != null) {
             int Amount = Integer.parseInt(xAmount);
-            TransactionsController.requestMoney(Payer, Amount, Remarks);
+            ClientServer.requestMoney(Payer,Amount,Remarks);
         } else {
             System.out.println("Please fill all the fields properly.");
         }

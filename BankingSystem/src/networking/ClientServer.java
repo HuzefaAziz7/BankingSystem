@@ -36,12 +36,11 @@ public class ClientServer {
                 dos.writeUTF(Payee);
                 dos.writeInt(Amount);
                 
-                String toSend = Payer + " has sent " + Amount + " to " + Payee +"."+ " Remarks : " + Remarks ;
-                dos.writeUTF(toSend);
+//                String toSend = Payer + " has sent " + Amount + " to " + Payee +"."+ " Remarks : " + Remarks ;
+//                dos.writeUTF(toSend);
             
                 String received = dis.readUTF();
-                System.out.println(received);
-                
+                System.out.println(received); 
                 break;
                 
             }
@@ -57,10 +56,16 @@ public class ClientServer {
 
         try {
             while (true) {
-            	ClientServer ClientServer = new ClientServer(socket, dis, dos);
-                System.out.println(dis.readUTF());
-                String toSend = Payer + " has requested " + Amount + " from your account." + " Remarks : " + Remarks ;
-                dos.writeUTF(toSend);
+            	ClientServer ClientServer = new ClientServer(socket, dis, dos); 
+            	
+            	String Payee = "HuzefaAziz" ;
+                dos.writeUTF(Payee);
+                dos.writeUTF(Payer);
+                dos.writeInt(Amount);
+                
+                
+//                String toSend = Payee + " has requested " + Amount + " from " + Payer + " Remarks : " + Remarks ;
+//                dos.writeUTF(toSend);
 
                 String received = dis.readUTF();
                 System.out.println(received);

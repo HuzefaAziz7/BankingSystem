@@ -41,9 +41,8 @@ public class BankingSystemMain extends Application {
 	    Thread adminServerThread = new Thread(() -> {
 	        AdminServer.main(args);
 	    });
-//	    System.out.println("Starting the AdminServer...");
 	    adminServerThread.start();
-//	    System.out.println("AdminServer Started...");
+	    
 	    
 	   
 	    launch(args);
