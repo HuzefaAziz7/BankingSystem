@@ -109,7 +109,7 @@ public class LoginPageController {
         ImpMethods.generateCustomerID(branch);
         ImpMethods.generateAccountNumber(accountType);
         ImpMethods.generateCardNum(accountType);
-        String accountID = "ACC12345-SAV001";
+        String accountID = ImpMethods.generateAccountID(branch, accountType);
 
         if (newPassword.equals(confirmPassword)) {
             ImpMethods.NewUserLogin(CustomerID, customerName, hashedPassword, accountID, accountType, AccountNumber, DebitCardNum, CVV, ExpiryDate, pin, email, mobileNum, address, branch);

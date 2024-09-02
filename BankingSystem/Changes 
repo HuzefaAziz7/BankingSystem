@@ -5,6 +5,8 @@ Changes Needed in Program :
 	- The TextFields and PasswordsFields in Login System and Sign-In System must not be null.
 	- Even if the textfield and passwordfield in Login System is null, Still Login is Successful.
 
+
+
 	
 
 
@@ -20,6 +22,7 @@ Hard :
 - Email, SMS, and push notifications for account activity. * 
 - User-friendly dashboard with customisable widgets.
 - Admin dashboards for monitoring system performance and user activity.
+- Request Money Feature. (with Notifications)
 
 Moderate :
 - Support for multiple account types (savings, checking, credit, etc.). * 

@@ -85,10 +85,9 @@ public class ImpMethods {
         	}
         	int rowsAffected = PSUpdate.executeUpdate();
             PSUpdate.close();
-            System.out.print("Done");
             InsertUsedCustomerID();
             String table = String.valueOf(CustomerID);
-            newUserTable(CustomerID);
+            newUserTable(AccountID);
         } catch (Exception exc) {
             exc.printStackTrace();
         } // Catch.
@@ -153,6 +152,48 @@ public class ImpMethods {
 		LoginPageController.AccountNumber = String.valueOf(FPart) +","+ String.valueOf(SPart) +","+ String.valueOf(TPart) +","+ String.valueOf(FrPart);
 	} // generateAccountNumber().
 	
+	static public String generateAccountID(String Branch, String AccType) {
+		Random rand = new Random() ;
+		String accID = null ;
+		
+		String FPart = null ;
+		if (AccType == "Current Account") {
+			FPart = "CUR" ;
+		}
+		else if (AccType == "Savings Account") {
+			FPart = "SAV" ;
+		}
+		else if (AccType == "Youth Account") {
+			FPart = "YOU" ;
+		}
+		else {
+			FPart = "OTH";
+		}
+		
+		int SPart ;
+		if (Branch == "Pune") {
+			SPart = 11 ; 
+		}
+		else if (Branch == "Mumbai") {
+			SPart = 22 ; 
+		}
+		else if (Branch == "Jaipur") {
+			SPart = 33 ; 
+		}
+		else if (Branch == "Partapur") {
+			SPart = 44 ; 
+		}
+		else {
+			SPart = 55  ; 
+		}
+		
+		int TPart = rand.nextInt(10000,99999);
+		
+		accID = "ACC" + String.valueOf(TPart) + "-" + FPart + String.valueOf(SPart) ;
+				
+		return accID ;
+	} // generateAccountID().
+
 	static public void generateCardNum(String AccType) { // Number, CVV, ExpiryDate.
 		Random rand = new Random();
 		
@@ -201,26 +242,9 @@ public class ImpMethods {
 	
 	
 	
-	
-	
-	
-	
 	static public void generateReqLink() {
 		
 	} // generateReqLink(). 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	static void InsertUsedCustomerID() {
 		AdminDBConnection();
@@ -235,25 +259,25 @@ public class ImpMethods {
 	} // InsertUsedCustomerID()
 	
 	static void newUserTable(String tableName) {
-		ClientDBConnection();
-		
-		try {
-			PSUpdate = MyCon.prepareStatement("CREATE TABLE " + tableName + " (\n"
-	  				+ "  `SrNo` int NOT NULL AUTO_INCREMENT,\n"
-	  				+ "  `DateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,\n"
-	  				+ "  `Payee` varchar(45) NOT NULL,\n"
-	  				+ "  `Amount` int NOT NULL,\n"
-	  				+ "  `Payer` varchar(45) NOT NULL,\n"
-	  				+ "  `TransStatus` varchar(45) NOT NULL,\n"
-	  				+ "  `TransType` varchar(45) NOT NULL,\n"
-	  				+ "  UNIQUE KEY `SrNo_UNIQUE` (`SrNo`)\n"
-	  				+ ")");
-            int rowsAffected = PSUpdate.executeUpdate();
-            PSUpdate.close();
+	    ClientDBConnection(); // Ensure this method establishes the connection.
 
-        } catch (Exception exc) {
-            exc.printStackTrace();
-        } // Catch.
+	    String query = "CREATE TABLE `" + tableName + "` (\n"
+	            + "  `SrNo` int NOT NULL AUTO_INCREMENT,\n"
+	            + "  `DateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,\n"
+	            + "  `Payee` varchar(45) NOT NULL,\n"
+	            + "  `Amount` int NOT NULL,\n"
+	            + "  `Payer` varchar(45) NOT NULL,\n"
+	            + "  `TransStatus` varchar(45) NOT NULL,\n"
+	            + "  `TransType` varchar(45) NOT NULL,\n"
+	            + "  UNIQUE KEY `SrNo_UNIQUE` (`SrNo`)\n"
+	            + ")";
+
+	    try (PreparedStatement psUpdate = MyCon.prepareStatement(query)) {
+	        int rowsAffected = psUpdate.executeUpdate();
+	        System.out.println("Table created successfully. Rows affected: " + rowsAffected);
+	    } catch (Exception exc) {
+	        exc.printStackTrace();
+	    }
 		
 	} // New Table(). is made everytime a new user is entered in the database. 
     

@@ -141,6 +141,9 @@ public class MainPageController {
 
     @FXML
     void OpenDashboard(MouseEvent event) {
+    	String balance = String.valueOf(bankBalance());
+        LblBalanceAmount.setText(balance);
+        DateTime();
         DashboardPane.toFront();
         DashboardPane.setVisible(true);
         TransactionsPane.setVisible(false);
