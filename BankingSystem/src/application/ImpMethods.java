@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.Year;
 
@@ -280,6 +281,36 @@ public class ImpMethods {
 	    }
 		
 	} // New Table(). is made everytime a new user is entered in the database. 
+	
+	public static int totalCredit(String Username) {
+	    	int totalCredit = 0 ;
+	    	String query = "SELECT SUM(Amount) AS totalCredit FROM " + Username + " WHERE TransType = 'Credit' " ;
+	    	try {
+				MyRS = MyStmt.executeQuery(query) ;
+				while (MyRS.next()) {
+					totalCredit = MyRS.getInt("totalCredit");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	    	return totalCredit ;
+	    	
+	    } // totalCredit().
+	  
+	  public static int totalDebit(String Username) {
+	    	int totalDebit = 0 ;
+	    	String query = "SELECT SUM(Amount) AS totalDebit FROM " + Username + " WHERE TransType = 'Debit' " ; 
+	    	try {
+				MyRS = MyStmt.executeQuery(query) ;
+				while (MyRS.next()) {
+					totalDebit = MyRS.getInt("totalDebit");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	    	return totalDebit ;
+	    	
+	    } // totalCredit().
     
 	
 	

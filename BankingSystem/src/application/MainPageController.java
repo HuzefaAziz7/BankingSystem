@@ -75,6 +75,11 @@ public class MainPageController {
     @FXML
     public Label LblDateTime;
     @FXML
+    private Label LblTotalCredit;
+    @FXML
+    private Label LblTotalDebit;
+
+    @FXML
     private Label LblPay;
     @FXML
     private Label LblRequest;
@@ -143,6 +148,8 @@ public class MainPageController {
     void OpenDashboard(MouseEvent event) {
     	String balance = String.valueOf(bankBalance());
         LblBalanceAmount.setText(balance);
+        LblTotalCredit.setText(String.valueOf(ImpMethods.totalCredit(Name)));
+        LblTotalDebit.setText(String.valueOf(ImpMethods.totalDebit(Name)));
         DateTime();
         DashboardPane.toFront();
         DashboardPane.setVisible(true);
@@ -163,6 +170,8 @@ public class MainPageController {
         String balance = String.valueOf(bankBalance());
         LblBalanceAmount.setText(balance);
         DateTime();
+        LblTotalCredit.setText(String.valueOf(ImpMethods.totalCredit(Name)));
+        LblTotalDebit.setText(String.valueOf(ImpMethods.totalDebit(Name)));
     }
 
     void DateTime() {
@@ -244,5 +253,10 @@ public class MainPageController {
 
     public void viaLinkMoney(ActionEvent event) {
         // viaLinkMoney logic here
+    }
+    
+    @FXML
+    void refreshDashboard(MouseEvent event) {
+
     }
 } // CLASS.

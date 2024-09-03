@@ -58,7 +58,6 @@ public class PasswordController {
 	        }
 	        ImpMethods.PSUpdate.close();
 		} catch (SQLException e) {
-			System.out.println("61");
 			e.printStackTrace();
 			System.out.println("Email not sent. Please try again.");
 		}
@@ -67,23 +66,6 @@ public class PasswordController {
 //            GUI.lblConfirmation.setText("Email/Username Incorrect.");
         
     } // Forgot Password.
-
-    /* private void EmailVerification(int CustomerID, String Email) {
-        
-    	String DBEmail = null;
-        try {
-            ImpMethods.PSUpdate = ImpMethods.MyCon.prepareStatement("SELECT Email FROM IdInfo WHERE CustomerID = ?");
-            ImpMethods.PSUpdate.setInt(1, CustomerID);
-            ImpMethods.MyRS = ImpMethods.PSUpdate.executeQuery();
-            if (ImpMethods.MyRS.next()) {
-                DBEmail = ImpMethods.MyRS.getString("Email");
-                
-            }
-            ImpMethods.PSUpdate.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    } // EmailVerification(). */
     
     private void generatePasskey() {
         Random random = new Random();

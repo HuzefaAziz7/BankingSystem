@@ -1,0 +1,42 @@
+Changes Needed in Program : 
+	- Is AccBalance Needed?
+	- Change the LastTransaction and LastTenTransactions Method. Make it directly dependent to the mysql script. 
+	- While Entering the Username during Login, If the username is not present in the SQL DB, the system prints an error. 
+	- The TextFields and PasswordsFields in Login System and Sign-In System must not be null.
+	- Even if the textfield and passwordfield in Login System is null, Still Login is Successful.
+
+
+
+	
+
+
+Hard :
+- Ordinal Numbers for Transactions History. 
+- User can search for Transactions/Kinds.  
+- Create a Saving Account Pot System. * 
+- Fraud detection mechanisms.
+- Chatbot integration for customer inquiries. * 
+- Credit/Debit Card Feature. * 
+- Currency exchange. (API) * 
+- Email, SMS, and push notifications for account activity. * 
+- User-friendly dashboard with customisable widgets.
+- Admin dashboards for monitoring system performance and user activity.
+- Request Money Feature. (with Notifications)
+
+Moderate :
+- Support for multiple account types (savings, checking, credit, etc.). * 
+- Transaction history and statements. 
+- Scheduled and recurring transactions. * 
+- Ticketing system for issue tracking. 
+- Savings goals and progress tracking. * 
+- Dark mode and accessibility features. 
+- Financial reports and analytics for users.
+
+Easy : 
+- Account creation, updating, and deletion. 
+- Multi-factor authentication (MFA).
+- Option to Empty Tables (Use Truncate). 
+
+------------------------------------------------------------------------------
+Settings Page : 1. Preferences, 2. 
+

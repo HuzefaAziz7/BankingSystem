@@ -19,7 +19,7 @@
    <items>
       <AnchorPane fx:id="SideBarPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="118.0">
          <children>
-            <ImageView fx:id="ImgBank" blendMode="DARKEN" fitHeight="72.0" fitWidth="68.0" layoutX="29.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ImgBank" blendMode="DARKEN" fitHeight="72.0" fitWidth="68.0" layoutX="29.0" layoutY="14.0" onMouseClicked="#refreshDashboard" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Downloads/bank-icon-logo-design-vector.jpg" />
                </image>
@@ -32,6 +32,11 @@
             <ImageView fx:id="ToDashboard" blendMode="SRC_ATOP" fitHeight="35.0" fitWidth="45.0" layoutX="42.0" layoutY="108.0" onMouseClicked="#OpenDashboard">
                <image>
                   <Image url="@../Items/Home.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ToTransactions" blendMode="DARKEN" fitHeight="35.0" fitWidth="45.0" layoutX="47.0" layoutY="156.0" onMouseClicked="#OpenTransactions" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Items/transactions1.png" />
                </image>
             </ImageView>
             <ImageView fx:id="ToCards" fitHeight="35.0" fitWidth="45.0" layoutX="42.0" layoutY="208.0">
@@ -54,11 +59,6 @@
                   <Image url="@../Items/notifications.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="ToTransactions" blendMode="DARKEN" fitHeight="35.0" fitWidth="45.0" layoutX="47.0" layoutY="156.0" onMouseClicked="#OpenTransactions" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Items/transactions1.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
       <StackPane fx:id="MainDisplayPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="726.0">
@@ -67,8 +67,8 @@
                <children>
                   <AnchorPane fx:id="UpperDashboardPane" cache="true" layoutX="6.0" layoutY="2.0" prefHeight="313.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF;">
                      <children>
-                        <ChoiceBox fx:id="CBAccountType" layoutX="268.0" layoutY="15.0" prefHeight="26.0" prefWidth="228.0" value="Select Account" />
-                        <Label fx:id="LblName" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="138.0" text="Hello, Huzefa Aziz">
+                        <ChoiceBox fx:id="CBAccountType" layoutX="271.0" layoutY="15.0" prefHeight="26.0" prefWidth="228.0" value="Select Account" />
+                        <Label fx:id="LblName" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="138.0" text="Hello, Username">
                            <font>
                               <Font name="Kefa Regular" size="15.0" />
                            </font>
@@ -79,7 +79,7 @@
                            </font></Label>
                         <AnchorPane layoutX="35.0" layoutY="94.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="280.0" style="-fx-background-color: #e6e7e8;">
                            <children>
-                              <Label fx:id="LblBalanceAmount" alignment="CENTER" layoutX="5.0" layoutY="69.0" prefHeight="50.0" prefWidth="273.0">
+                              <Label fx:id="LblBalanceAmount" alignment="CENTER" layoutX="5.0" layoutY="69.0" prefHeight="50.0" prefWidth="273.0" text="0">
                                  <font>
                                     <Font name="Avenir Black Oblique" size="32.0" />
                                  </font>
@@ -89,14 +89,24 @@
                                     <Font name="Kefa Regular" size="20.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="LblTotalCredit" layoutX="43.0" layoutY="138.0" prefHeight="20.0" prefWidth="81.0" text="📈 + 6,982">
+                              <Label layoutX="43.0" layoutY="138.0" prefHeight="23.0" prefWidth="45.0" text="📈 + ">
                                  <font>
                                     <Font name="Avenir Black Oblique" size="15.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="LblTotalDebit" layoutX="168.0" layoutY="138.0" text="📉 - 2,943">
+                              <Label layoutX="168.0" layoutY="138.0" text="📉 - ">
                                  <font>
                                     <Font name="Avenir Black Oblique" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="LblTotalCredit" layoutX="82.0" layoutY="138.0" prefHeight="23.0" prefWidth="58.0" text="4500">
+                                 <font>
+                                    <Font name="Avenir Black" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="LblTotalDebit" layoutX="202.0" layoutY="139.0" prefHeight="17.0" prefWidth="63.0" text="2000">
+                                 <font>
+                                    <Font name="Avenir Black" size="15.0" />
                                  </font>
                               </Label>
                            </children>
@@ -124,12 +134,12 @@
                         </ImageView>
                      </children>
                   </AnchorPane>
-                  <Pane fx:id="LatestTransPane" layoutX="29.0" layoutY="368.0" prefHeight="246.0" prefWidth="427.0" style="-fx-background-color: #FFFFFF;">
+                  <Pane fx:id="LatestTransPane" layoutX="20.0" layoutY="368.0" prefHeight="246.0" prefWidth="427.0" style="-fx-background-color: #FFFFFF;">
                      <children>
                         <Label alignment="CENTER" layoutX="95.0" layoutY="82.0" prefHeight="82.0" prefWidth="174.0" text="LATEST TRANSACTIONS" />
                      </children>
                   </Pane>
-                  <AnchorPane fx:id="OffersPane" layoutX="476.0" layoutY="368.0" prefHeight="246.0" prefWidth="242.0" style="-fx-background-color: #FFFFFF;">
+                  <AnchorPane fx:id="OffersPane" layoutX="463.0" layoutY="368.0" prefHeight="246.0" prefWidth="242.0" style="-fx-background-color: #FFFFFF;">
                      <children>
                         <Label layoutX="47.0" layoutY="110.0" prefHeight="17.0" prefWidth="174.0" text="OFFERS HERE">
                            <font>
