@@ -312,9 +312,4 @@ public class ImpMethods {
 	    	
 	    } // totalCredit().
     
-	
-	
-	
-	
-	
 }

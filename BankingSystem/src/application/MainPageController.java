@@ -45,7 +45,7 @@ public class MainPageController {
     @FXML
     private AnchorPane CardsPane;
     @FXML
-    private AnchorPane DashboardPane;
+    public static AnchorPane DashboardPane;
     @FXML
     private AnchorPane DepositPane;
     @FXML
@@ -145,7 +145,7 @@ public class MainPageController {
     }
 
     @FXML
-    void OpenDashboard(MouseEvent event) {
+    void OpenDashboard(MouseEvent event) { 
     	String balance = String.valueOf(bankBalance());
         LblBalanceAmount.setText(balance);
         LblTotalCredit.setText(String.valueOf(ImpMethods.totalCredit(Name)));
