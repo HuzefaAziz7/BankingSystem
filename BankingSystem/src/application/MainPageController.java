@@ -3,16 +3,21 @@ package application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import networking.ClientServer;
 import networking.TransactionsController;
 import javafx.scene.control.ChoiceBox;
 
+import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 
@@ -22,22 +27,8 @@ public class MainPageController {
     static Connection MyCon = null;
     static Statement MyStmt = null;
     static ResultSet MyRS = null;
-    static PreparedStatement PSUpdate = null;
+    static PreparedStatement PSUpdate = null ;
 
-    @FXML
-    private Button BtnCards;
-    @FXML
-    private Label BtnSettings;
-    @FXML
-    private Button BtnHelp;
-    @FXML
-    private Button BtnHistory;
-    @FXML
-    private Button BtnNotifications;
-    @FXML
-    private Button BtnProfile;
-    @FXML
-    private Button BtnTransactions;
     @FXML
     private ChoiceBox<?> CBChooseAcc;
     @FXML
@@ -45,7 +36,7 @@ public class MainPageController {
     @FXML
     private AnchorPane CardsPane;
     @FXML
-    public static AnchorPane DashboardPane;
+    public AnchorPane DashboardPane;
     @FXML
     private AnchorPane DepositPane;
     @FXML
@@ -61,6 +52,8 @@ public class MainPageController {
     @FXML
     private ImageView ImgSuccessful;
     @FXML
+    private ImageView ToProfile ;
+    @FXML
     private Pane LatestTransPane;
     @FXML
     private Label LblAccountType;
@@ -69,7 +62,7 @@ public class MainPageController {
     @FXML
     private Label LblHello;
     @FXML
-    private static String Name = "HuzefaAziz"; // LoginPageController.DashboardUsername ;
+    private static String Name = "CrisRonaldo"; // LoginPageController.DashboardUsername ;
     
     public Label LblName;
     @FXML
@@ -146,11 +139,6 @@ public class MainPageController {
 
     @FXML
     void OpenDashboard(MouseEvent event) { 
-    	String balance = String.valueOf(bankBalance());
-        LblBalanceAmount.setText(balance);
-        LblTotalCredit.setText(String.valueOf(ImpMethods.totalCredit(Name)));
-        LblTotalDebit.setText(String.valueOf(ImpMethods.totalDebit(Name)));
-        DateTime();
         DashboardPane.toFront();
         DashboardPane.setVisible(true);
         TransactionsPane.setVisible(false);
@@ -162,6 +150,8 @@ public class MainPageController {
         TransactionsPane.setVisible(true);
         DashboardPane.setVisible(false);
     }
+    
+    
 
     void BasicPriorities() {
         LblName.setText("Hello, " + Name);
@@ -191,7 +181,6 @@ public class MainPageController {
 
         try {
             if (Name == null || Name.trim().isEmpty()) {
-            	System.out.println("ERROR AT 182 !!!!!!! ");
                 throw new IllegalArgumentException("Name parameter is null or empty");
             }
 
@@ -259,4 +248,19 @@ public class MainPageController {
     void refreshDashboard(MouseEvent event) {
 
     }
+    
+    public void ToProfilePage() {
+		try {
+            Parent newUserPage = FXMLLoader.load(getClass().getResource("/Fxml_Files/ProfilePage.fxml"));
+            Scene scene = new Scene(newUserPage, 850, 630);
+            Stage NewUserStage = new Stage();
+            NewUserStage.setTitle("Capital Bank");
+            NewUserStage.setScene(scene);
+            NewUserStage.show();
+            BankingSystemMain.primaryStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	} // ToProfilePage().
+    
 } // CLASS.

@@ -21,7 +21,7 @@ public class BankingSystemMain extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			BankingSystemMain.primaryStage = primaryStage;
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml_Files/ProfilePage.fxml")); // 
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/FrontLoginPage.fxml")); ///Fxml_Files 
 			Parent root = loader.load(); 
 			Scene scene = new Scene(root,850, 630);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

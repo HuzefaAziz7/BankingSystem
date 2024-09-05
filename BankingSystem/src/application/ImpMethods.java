@@ -28,7 +28,7 @@ public class ImpMethods {
 
 	  	{ try {
 			
-	  		String dbUrl = "jdbc:mysql://localhost:3306/Admin" ;
+	  		String dbUrl = null ;
 	  		String usernamedb = "BankingSystem" ;
 	  		String passworddb = "bank" ;
 			
@@ -50,7 +50,7 @@ public class ImpMethods {
 
 	  	{ try {
 			
-	  		String dbUrl = "jdbc:mysql://localhost:3306/Client" ;
+	  		String dbUrl = null ;
 	  		String usernamedb = "BankingSystem" ;
 	  		String passworddb = "bank" ;
 			

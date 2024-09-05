@@ -127,7 +127,7 @@
                            </children>
                         </StackPane>
                         <Separator layoutX="543.0" layoutY="7.0" orientation="VERTICAL" prefHeight="39.0" prefWidth="6.0" />
-                        <ImageView fx:id="ToProfile" blendMode="DARKEN" fitHeight="35.0" fitWidth="56.0" layoutX="164.0" layoutY="9.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="ToProfile" blendMode="DARKEN" fitHeight="35.0" fitWidth="56.0" layoutX="164.0" layoutY="9.0" nodeOrientation="INHERIT" onMouseClicked="#ToProfilePage" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Items/profilee.png" />
                            </image>

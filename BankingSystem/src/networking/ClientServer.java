@@ -31,7 +31,7 @@ public class ClientServer {
             	ClientServer ClientServer = new ClientServer(socket, dis, dos);
             
             	
-            	String Payer = "HuzefaAziz" ;
+            	String Payer = "Payer-Name" ;
                 dos.writeUTF(Payer);
                 dos.writeUTF(Payee);
                 dos.writeInt(Amount);
@@ -58,7 +58,7 @@ public class ClientServer {
             while (true) {
             	ClientServer ClientServer = new ClientServer(socket, dis, dos); 
             	
-            	String Payee = "HuzefaAziz" ;
+            	String Payee = "Payer-Name" ;
                 dos.writeUTF(Payee);
                 dos.writeUTF(Payer);
                 dos.writeInt(Amount);

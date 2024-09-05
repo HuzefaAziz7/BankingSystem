@@ -22,7 +22,7 @@ public class EmailController {
                 + "Thank You. \n";
         
         String subject = "Password Reset";
-        String from = "codehuzefa@gmail.com";
+        String from = null ;
         
         // Variable for Gmail.
         String host = "smtp.gmail.com";
@@ -40,7 +40,7 @@ public class EmailController {
         Session session = Session.getInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, "emvx udym icev cgns");
+                return new PasswordAuthentication(from, " ");
             }
         });
         
